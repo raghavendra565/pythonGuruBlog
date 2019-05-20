@@ -1,0 +1,185 @@
+.mat-elevation-z5{
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    right: 0;
+   background-color: white;
+    padding: 20px 0 20px 0;
+    height:100px;
+}
+
+.mat-elevation-navbar{
+    position: fixed;
+    z-index: 2;
+    top: 100px;
+    left: 0;
+    right: 0 !important;
+    // background-image: linear-gradient(#39935A,#38C69F);
+    background-color: #F2F2F2;
+    height: 40px !important;
+    font-size: 14px !important;
+}
+
+.mat-elevation-navbar1{
+    position: fixed;
+    z-index: 2;
+    top: 140px;
+    left: 0;
+    right: 0 !important;
+    // background-image: linear-gradient(#39935A,#38C69F);
+    background-color: rgb(233, 232, 232);
+    height: 40px !important;
+    font-size: 14px !important;
+}
+
+.material-icons {
+    font-family: 'Material Icons' !important;
+    font-size: 24px !important;
+    font-weight: lighter !important;
+    font-style: normal;
+    // display: inline-block;
+    // line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+
+    margin-right: 8px;
+    vertical-align: middle !important;
+
+    -webkit-font-smoothing: antialiased;
+    
+    text-rendering: optimizeLegibility;
+
+  
+    -moz-osx-font-smoothing: grayscale;
+
+  
+    font-feature-settings: 'liga';
+}
+
+.nav-hover {
+    //color:#353535;
+    color: black;
+    height: 40px !important;
+    //background-color:#58a746;
+    // background-color:rgb(88,167,70);
+}
+.nav-hover1 {
+    // color:#353535;
+    color: black;
+    height: 40px !important;
+    // background-color:rgb(70,106,167);
+    // background-color:#466aa7;
+}
+
+.nav-hover:hover{
+    color: white !important;
+    height: 40px !important;
+    background-color:#58a746;
+}
+
+.nav-hover1:hover{
+    color: white !important;
+    height: 40px !important;
+    background-color:#466aa7;
+}
+
+.search{
+    width: 1200px;
+    height: 40px;
+    border-radius: 1em;
+    border: 1px solid gray !important;
+    padding: 5px 0 0 12px; 
+}
+
+.ro-title-image {
+    // float: right;
+    display: block;
+    // margin-left: auto;
+    // margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    width:200px;
+    font-family: 'super comic' !important;
+    letter-spacing: 3px;
+    font-size: 60px;
+    // color: #f37658;
+    color:#466aa7;
+    // margin-right: auto;
+    // margin-left: 50px;
+    // margin-right: auto;
+}
+.ro-title-image1 {
+    // float: right;
+    cursor: pointer;
+    display: block;
+    margin-left: auto;
+    // margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    width:270px; // 135
+    font-family: 'super comic' !important;
+    letter-spacing: 3px;
+    font-size: 60px;
+    // color: #f37658;
+    color:#58a746;
+    // margin-right: auto;
+    // margin-left: 50px;
+    // margin-right: auto;
+}
+.ro-title-image-sm {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    // width:400px;
+    font-family: 'super comic' !important;
+    letter-spacing: 3px;
+    font-size: 30px;
+    color: #46A783 ;
+    // margin-right: auto;
+    // margin-left: 50px;
+    // margin-right: auto;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Arvo');
+
+.ro-title {
+    display: block;
+    // margin-left: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: auto;
+    color: white;
+    margin-left:auto;
+    // vertical-align: middle !important;
+    font-size: 2em;
+    font-family: neon 80s !important;
+}
+
+.ro-title-sm {
+    display: block;
+    // margin-left: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: auto;
+    color: white;
+    margin-left:10px;
+    // vertical-align: middle !important;
+    font-size: 1em;
+    font-family: 'Arvo', serif !important;
+}
+.topic_card{
+    width: 100%;
+    background-color: rgb(241, 241, 241);
+    border-radius: 25px;
+}
+.topicImage{
+    max-width: 300px;
+    height: 250px;
+    margin: 45px 50px 50px 45px ;
+}

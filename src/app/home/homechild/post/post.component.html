@@ -1,0 +1,349 @@
+<!-- Roboto Regular -->
+<div class="container-fluid" style="max-width:1200px">
+  <div class="row" style="width:100%; margin-bottom: 40px;">
+    <div class="col-xl-12" style="margin-bottom: 20px;">
+      <div class="d-flex justify-content-left" style="margin: 0 0px 0 0px;">
+        <img src="assets/images/hero/pythonguru5.jpg" height="240px" style="object-fit: contain;">
+      </div>
+    </div>
+    <div class="col-md-12 col-xl-9 col-lg-9">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="row" style="margin-bottom: 15px !important;" class="d-flex justify-content-center">
+            <mat-chip-list *ngIf="data['tags'].length > 0">
+              <mat-chip class="mat-chip-theme1" [ngClass]="{'mat-chip-theme1': z%4==0, 'mat-chip-theme2': z%4==1, 'mat-chip-theme3': z%4==2, 'mat-chip-theme4': z%4==3}" selected *ngFor="let tag of data['tags']; let z=index">{{tag}}</mat-chip>
+              <!-- <mat-chip class="mat-chip-theme2" selected>machine learning</mat-chip>
+              <mat-chip class="mat-chip-theme3" selected>angular</mat-chip>
+              <mat-chip class="mat-chip-theme4" selected>kubernetes</mat-chip> -->
+            </mat-chip-list>
+          </div>
+          <div width="100%" *ngFor="let record of data['blog_data']">
+            <h3 *ngIf="record['name']== 'title'">{{record['data'] | titlecase}}</h3>
+            <p *ngIf="record['name']== 'title'"
+              style="margin-top: -5px; color:#39935A !important; font-size:14px !important;">
+              <span style="color:black;">
+                <mat-icon class="material-icons">today</mat-icon>
+              </span>
+              <span style="color: black;margin-left: -5px;">03/30/2017</span> &nbsp;
+              <span style="color:black;">
+                <mat-icon class="material-icons">timer</mat-icon>
+              </span>
+              <span style="color:black;margin-left: -5px;">{{data['reading_time']}} minutes
+                read&nbsp;&nbsp;&nbsp;</span>
+              <span><img src="assets/images/pen.png" width="12px" style="margin-top: -2px !important;"></span>
+              &nbsp;<a [href]="data['author']['linkedin_profile']">{{data['author']['name']}}</a> <span>
+              </span>
+            </p>
+            <div class="mt-3">
+              <p *ngIf="record['name']== 'text'" innerHtml="{{record['data']}}"></p>
+              <div *ngIf="record['name'] == 'image'">
+                <img class="postImage" [src]="record['data']">
+              </div>
+              <div class="row">
+                <div class="col-lg-12" *ngIf="record['name']== 'subtitle'">
+                  <h5 style="color: #3a3a3a !important;">{{record['data'] | titlecase}}</h5>
+                  <!-- c0576a -->
+                </div>
+                <div class="col-lg-12" *ngIf="record['name']=='code' && record['data']" style="margin-bottom: 30px;">
+                  <pre [ngClass]="record['class']" class="line-numbers mat-elevation-z5">
+                    <div class="code-bar">
+                      <span>{{record['language'] | uppercase }}</span><span class="code-bar-title" (click)="copyMessage(record['data'])">&nbsp;&nbsp;<button mat-icon-button><mat-icon class="material-icons-copy">file_copy</mat-icon></button>Copy</span>
+                    </div>
+                    <hr style="margin-right: -15px; margin-left: -60px; margin-top: 35px;">
+                    <code style="font-family: Inconsolata !important">
+                      {{record['data']}}
+                    </code>
+                  </pre>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br>
+          <div class="card" *ngIf="data['comments'].length > 0">
+            <div class="card-header">{{data['comments'].length}} Comments </div>
+            <div class="card-body">
+              <div class="media" *ngFor="let comm of data['comments']; let j=index">
+                <img class="mr-3 rounded-circle thumb64" src="assets/images/pen.png" width="25" />
+                <div class="media-body">
+                  <h6 id="media-heading">
+                    <a href="">{{comm['name']}}</a>
+                    <!-- <small>10 min</small> -->
+                  </h6>
+                  <p style="margin-top:6px;">&nbsp;&nbsp;&nbsp;&nbsp;{{comm['comment']}}</p>
+                </div>
+                <hr />
+              </div>
+            </div>
+          </div><br>
+          <div class="card">
+            <div class="card-header">
+              <em class="fas fa-pencil-alt mr-2"></em>Add your Comment</div>
+            <div class="card-body">
+              <form class="form-horizontal" action="/">
+                <div class="form-group row">
+                  <div class="col-6">
+                    <input class="form-control" id="post-firstname" type="text" name="post-firstname"
+                      placeholder="Your name" [(ngModel)]="commenter_name" />
+                  </div>
+                  <div class="col-6">
+                    <input class="form-control" id="post-lastname" type="email" name="post-lastname"
+                      placeholder="Your email" [(ngModel)]="commenter_email" />
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-12">
+                    <textarea class="form-control" id="post-comment" name="post-comment" rows="4"
+                      placeholder="Comment here.." [(ngModel)]="comment"></textarea>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-12">
+                    <button class="btn" style="background-color: #35916f; color: white;" type="button"
+                      (click)="postComment(data)">Send Comment</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3">
+      <div class="row" *ngIf="all_blogs_data" style="margin-top:50px;">
+        <div class="col-md-12">
+          <h4 style="color:#466aa7; cursor: pointer;">MOST POPULAR</h4>
+          <hr>
+        </div>
+        <div class="col-md-12" *ngFor="let i of all_blogs_data">
+          <h6 class="title" style="color:#466aa7; cursor: pointer;" *ngIf="i['blog_data'][0]['name'] == 'title'">
+            {{i['blog_data'][0]['data'] | titlecase}}</h6>
+          <!-- <p>
+              It is the third part of Beautiful Python series by Tk. If you are a totally beginner developer learning
+              Python, you should.
+            </p> -->
+          <div style="margin-top:-10px;">
+            <span style="color:#58a746;">{{i['author']['name']}}</span>&nbsp;
+            <span style="color:rgb(82, 82, 82); font-size: 14px;">{{ i['post_date'] | date: 'dd/MM/yy' }}</span>
+          </div><br>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+<!-- <div class="container-fluid " style="max-width:1200px;">
+  <div class="row" style="width:100%">
+    <div class="col-xl-12">
+      <div class="d-flex">
+        <img src="assets/images/hero/pythonguru3.jpg" height="277px;" width="1200px;">
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="row" style="width:100%;">
+    <div class="col-lg-9">
+      <div class="search">
+        <span>
+          <mat-icon class="material-icons">search</mat-icon>
+        </span> <span>search</span>
+      </div>
+    </div><br><br><br><br>
+  </div>
+  <div class="row" style="width:100%;">
+
+    <div class="col-sm-12 col-md-12 col-xl-9 col-lg-9">
+      <div class="row">
+        <div class="col-xl-12">
+          <div class="row" style="width:100%;">
+            <div class="col-lg-12">
+              <div class="row">
+                <div class="col-lg-12">
+                  <h2>Object Orientation Through Python</h2>
+                  <p style="margin-top: -2px; color:#39935A !important; font-size:14px !important;">
+                    <span style="color:black;">
+                      <mat-icon class="material-icons-custom">today</mat-icon>
+                    </span>
+                    <span style="color: black;margin-left: -15px;">03/30/2017</span> &nbsp;
+                    <span style="color:black;">
+                      <mat-icon class="material-icons-custom">timer</mat-icon>
+                    </span>
+                    <span style="color:black;margin-left: -15px;">5 minutes read&nbsp;&nbsp;</span>
+                    <span><img src="assets/images/pen.png" width="12px" style="margin-top: -2px !important;"></span>
+                    Naren Allam
+                  </p><br>
+                  <div>
+                    <p>
+                      It is the third part of Beautiful Python series by Tk. If you are a totally beginner developer
+                      learning
+                      Python, you should start with part I & part II of this series. The first part we learn about the
+                      history
+                      about Python & very basic stuff like variables, control flow (if-else statements) and looping. For
+                      the
+                      second part we talk more about Python Data Structures, how it works & how we can iterate through
+                      it.
+                      In
+                      this part we have a conversation about Object Oriented Programming & Python.
+                    </p><br>
+                    <div>
+                      <img class="postImage" src="assets/images/blocks/pythonguru.jpg">
+                    </div><br>
+                    <div class="row">
+                      <div class="col-lg-12">
+                        <div>
+                          <h4>python</h4><br>
+                        </div>
+                      </div>
+                      <div class="col-lg-12">
+                        <p>
+                          It is the third part of Beautiful Python series by Tk. If you are a totally beginner developer
+                          learning
+                          Python, you should start with part I & part II of this series. The first part we learn about
+                          the
+                          history
+                          about Python & very basic stuff like variables, control flow (if-else statements) and looping.
+                          For
+                          the
+                          second part we talk more about Python Data Structures, how it works & how we can iterate
+                          through
+                          it.
+                          In
+                          this part we have a conversation about Object Oriented Programming & Python.
+                        </p>
+                      </div>
+                      <div class="col-lg-12">
+                        <div>
+                          <img class="postImage" src="assets/images/blocks/pythonguru.jpg">
+                        </div><br>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-lg-3 col-md-12 ">
+      <div>
+        <h3>Popular Topics</h3>
+        <hr>
+      </div><br>
+      <div class="row" *ngFor="let i of topics">
+        <div class="col-md-12">
+          <h5>Object Orientation Through Python</h5><br>
+          <p>
+            It is the third part of Beautiful Python series by Tk. If you are a totally beginner developer learning
+            Python, you should.
+          </p>
+          <h6><strong>Naren Allam</strong></h6>
+          <h6 style="color:rgb(82, 82, 82); font-size: 14px;"><strong>23/04/2017</strong></h6><br>
+        </div>
+      </div>
+    </div>
+  
+  </div>
+</div> -->
+
+
+
+
+
+<!-- <div class="col-lg-3">
+        <div>
+          <h3>Popular Topics</h3>
+          <hr>
+        </div><br>
+        <div class="row" *ngFor="let i of topics">
+          <div class="col-md-12">
+            <h5>Object Orientation Through Python</h5>
+            <p>
+              It is the third part of Beautiful Python series by Tk. If you are a totally beginner developer learning
+              Python, you should.
+            </p>
+            <h6><strong>Naren Allam</strong></h6>
+            <h6 style="color:rgb(82, 82, 82); font-size: 14px;"><strong>23/04/2017</strong></h6><br>
+          </div>
+        </div>
+      </div> -->
+<!-- <div class="col-xl-2">
+
+    </div> -->
+<!-- <div class="row" style="width:100%; height: 404px; background-color: #A7A7A7; padding-top:60px;">
+  <div class="col-lg-1" style="margin-right:120px; ">
+
+  </div>
+  <div class="col-lg-3">
+    <h4 class="d-flex justify-content-center" style="width:100%; color: white;">Start a Course</h4><br>
+    <p>
+      It is the third part of Beautiful Python serie s by Tk. If you are a totally beginner developer learning
+      Python, you should.
+    </p>
+  </div>
+
+  <div class="col-lg-3">
+    <h4 class="d-flex justify-content-center" style="width:100%; color: white;">Our Services</h4><br>
+    <p>
+      It is the third part of Beautiful Python serie s by Tk. If you are a totally beginner developer learning
+      Python, you should.
+    </p>
+  </div>
+
+  <div class="col-lg-3">
+    <h4 class="d-flex justify-content-center" style="width:100%; color: white;">About Us</h4><br>
+    <p>
+      It is the third part of Beautiful Python serie s by Tk. If you <br>are a totally beginner developer learning
+      Python, you should.
+    </p>
+  </div>
+  <div class="col-lg-1">
+
+  </div>
+  <div class="row" style="width:100%; margin-left: 450PX;">
+    <div class="col-lg-1">
+
+    </div>
+    <div class="col-lg-10">
+      <div class="row">
+        <div class="col-lg-2">
+          <h5>Follow Us On:</h5>
+        </div>
+        <div class="col-lg-2" style=" margin-left: -100PX;">
+          <img src="assets/images/blocks/Group 167.png">
+        </div>
+        <div class="col-lg-2" style=" margin-left: -100PX;">
+          <img src="assets/images/blocks/Group 168.png">
+        </div>
+        <div class="col-lg-2" style=" margin-left: -100PX;">
+          <img src="assets/images/blocks/Group 169.png">
+        </div>
+        <div class="col-lg-2" style=" margin-left: -100PX;">
+          <img src="assets/images/blocks/Group 170.png">
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-1">
+
+    </div>
+  </div>
+  <div class="row" style="width:100%;">
+    <div class="col-lg-1">
+
+    </div>
+    <div class="col-lg-10" style="width:100%; margin-left: 1200px; color: white;">
+    <strong>Copyrights reserved @2019</strong>
+    </div>
+    <div class="col-lg-1">
+
+    </div>
+  </div>
+</div> -->

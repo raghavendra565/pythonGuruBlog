@@ -1,0 +1,183 @@
+<div class="container" style="max-width:1200px;">
+
+
+  <!-- <div class="row">
+    <div class="col-lg-8">
+
+    </div>
+    <div class="col-lg-4">
+      <div class="d-flex justify-content-center">
+        <img src="assets/images/hero/add.png" width="370px" height="370px;">
+      </div>
+    </div>
+  </div> -->
+  <!-- style="border:2px solid red;" -->
+  <div class="row">
+    <!-- <div class="col-xl-2">
+    </div> -->
+    <div class="col-lg-8">
+      <div class="row">
+        <div class="col-xl-12" style="margin-bottom: 20px;">
+          <div class="d-flex justify-content-center" style="margin: 0 0px 0 10px;overflow: hidden;">
+            <img src="assets/images/hero/pythonguru6.jpg" height="240px;" style="object-fit: contain">
+          </div>
+          <br>
+          <!-- <div class="search">  width="770px" height="240px;"-->
+          <!-- <span>
+              <mat-icon class="material-icons">search</mat-icon>
+              
+            </span> <span>search</span> -->
+          <!-- <mat-form-field appearance="outline" style="width: 100%;margin : 0px 0 0 10px;" class="mat-form-field-appearance-outline mat-form-field-outline">
+              <mat-label>Search</mat-label>
+              <input matInput placeholder="Search...">
+              <mat-icon matPrefix>search</mat-icon>
+            </mat-form-field> -->
+          <!-- </div> -->
+          <div class="form-group ml-2">
+            <!-- <label >Search</label> -->
+            <input type="text" class="form-control" id="exampleInput" placeholder="Search..."
+              style="border-color: rgb(83, 175, 117); border-radius: 0.8em;">
+          </div>
+        </div>
+        <div class="col-xl-12" *ngFor="let i of list_blogs" (click)="postdata(i)">
+          <div class="topic_card" style="width:100%;">
+            <div class="row" style="width:100%;">
+              <div class="col-lg-9 col-md-9 pl-4">
+                <h6 style="color:rgb(82, 82, 82); padding-top: 10px;">{{i['language'] | titlecase}}</h6>
+                <h5 *ngIf="i['blog_data'][0]['name'] == 'title'" style="cursor: pointer;">
+                  {{i['blog_data'][0]['data'] | titlecase}}
+                </h5>
+                <p style=" color:#58a746   !important; font-size:14px !important; margin-top: -5px !important;">
+                  <span style="color:rgb(85, 85, 85);">
+                    <mat-icon class="material-icons-custom">today</mat-icon>
+                  </span>
+                  <span
+                    style="color: rgb(85, 85, 85);margin-left: -15px;">{{ i['post_date'] | date: 'dd/MM/yy' }}</span>
+                  &nbsp;
+                  <span style="color:rgb(85, 85, 85);">
+                    <mat-icon class="material-icons-custom">timer</mat-icon>
+                  </span>
+                  <span style="color:rgb(85, 85, 85);margin-left: -15px;">{{i['reading_time']}} minutes
+                    read&nbsp;&nbsp;&nbsp;</span>
+                  <span><img src="assets/images/pen.png" width="12px" style="margin-top: -2px !important;"></span>
+                  {{i['author']['name']}}
+                </p>
+                <div style="margin-top:-10px !important;">
+                  <p class="paragraph" innerHtml="{{i['preview_text']}}">
+                    
+                    <!-- {{i['blog_data'][1]['data']}} -->
+                  </p>
+                </div>
+                <!-- <div style="margin-top:-10px !important;" *ngIf="i['blog_data'][1]['name'] == 'text'">
+                  <p class="paragraph" >
+                    {{i['blog_data'][1]['data']}}
+                  </p>
+                </div> -->
+              </div>
+              <div class="col-lg-3 col-md-3" style="cursor:pointer;" *ngIf="i['preview_image']">
+                <img class="topicImage" src="assets/images/detailsimages/machinelearning2.png">
+                <!--  [src]="i['preview_image']"  src="assets/images/detailsimages/detailsimage2.png"-->
+              </div>
+              <div class="col-lg-3 col-md-3" style="cursor:pointer;" *ngIf="!i['preview_image']">
+                <img class="topicImage" src="assets/images/detailsimages/Oppspy2.png">
+                <!--  [src]="i['preview_image']"  src="assets/images/detailsimages/detailsimage2.png"-->
+              </div>
+            </div>
+          </div>
+          <br>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="d-flex justify-content-center" style="margin-bottom: 20px;">
+        <img src="assets/images/hero/add5.png" width="370px" height="370px;">
+      </div>
+      <div>
+        <!-- <iframe width="380" height="250" src="https://www.youtube.com/embed/4gqcmcCZSHo" frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+        <!-- <iframe width="380" height="250" src="https://www.youtube.com/embed/Eo42TYXkI8Q" frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+      </div><br>
+      <div>
+        <h4 style="color:#466aa7; cursor: pointer;">MOST POPULAR</h4>
+        <hr>
+      </div>
+      <div class="row" *ngFor="let i of list_blogs" (click)="postdata(i)">
+        <div class="col-md-12">
+          <h6 class="title" style="color:#466aa7; cursor: pointer;" *ngIf="i['blog_data'][0]['name'] == 'title'">
+            {{i['blog_data'][0]['data'] | titlecase}}</h6>
+          <!-- <p>
+            It is the third part of Beautiful Python series by Tk. If you are a totally beginner developer learning
+            Python, you should.
+          </p> -->
+          <div style="margin-top:-10px;">
+            <span style="color:#58a746;">{{i['author']['name']}}</span>&nbsp;
+            <span style="color:rgb(82, 82, 82); font-size: 14px;">{{ i['post_date'] | date: 'dd/MM/yy' }}</span>
+          </div><br>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- 
+</div><br>
+
+<div class="container-fluid" style="max-width:1200px" *ngIf="list_blogs.length > 0"> -->
+  <!-- <div class="row">
+    <div class="col-lg-9">
+      <div class="row" *ngFor="let i of list_blogs" (click)="postdata(i)">
+        <div class="col-xl-12">
+          <mat-card class="topic_card" style="width:100%;">
+            <div class="row" style="width:100%;">
+              <div class="col-lg-8 col-md-8 pl-4">
+                <h6><strong>Python</strong></h6>
+                <h5>Object Orientation Through Python </h5>
+                <p style="margin-top: -2px; color:#39935A !important; font-size:14px !important;">
+                  <span style="color:black;">
+                    <mat-icon class="material-icons-custom">today</mat-icon>
+                  </span>
+                  <span style="color: black;margin-left: -15px;">{{ i['post_date'] | date: 'dd/MM/yy' }}</span> &nbsp;
+                  <span style="color:black;">
+                    <mat-icon class="material-icons-custom">timer</mat-icon>
+                  </span>
+                  <span style="color:black;margin-left: -15px;">{{i['reading_time']}} minutes read&nbsp;&nbsp;</span>
+                  <span><img src="assets/images/pen.png" width="12px" style="margin-top: -2px !important;"></span>
+                  &nbsp;<a [href]="i['author']['linkedin_profile']">{{i['author']['name']}}</a>
+                </p>
+                <div *ngIf="i['blog_data'][1]['name'] == 'text'">
+                  <p>
+                    {{i['blog_data'][1]['data']}}
+                  </p>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-4">
+                <img class="topicImage" [src]="i['preview_image']" height="300px;">
+              </div>
+            </div>
+          </mat-card>
+          <br>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3">
+      <div>
+        <h2 style="color:#58a746;">Popular Topics</h2>
+        <hr>
+      </div><br>
+      <div class="row" *ngFor="let i of topics">
+        <div class="col-md-12">
+          <h5 style="color:#466aa7;">Object Orientation Through Python</h5>
+          <p>
+            It is the third part of Beautiful Python series by Tk. If you are a totally beginner developer learning
+            Python, you should.
+          </p>
+          <div style="margin-top:-10px;">
+            <span style="color:#58a746;">Naren Allam</span>&nbsp;
+            <span style="color:rgb(82, 82, 82); font-size: 14px;">23/04/2017</span>
+          </div><br>
+        </div>
+      </div>
+    </div>
+
+  </div> -->
+</div>

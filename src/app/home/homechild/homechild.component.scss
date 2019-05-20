@@ -1,0 +1,182 @@
+.material-icons {
+    font-family: 'Material Icons' !important;
+    font-size: 24px !important;
+    font-weight: lighter !important;
+    font-style: normal;
+    // display: inline-block;
+    // line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+
+    margin-right: 8px;
+    vertical-align: middle !important;
+
+    -webkit-font-smoothing: antialiased;
+    
+    text-rendering: optimizeLegibility;
+
+  
+    -moz-osx-font-smoothing: grayscale;
+
+  
+    font-feature-settings: 'liga';
+}
+.material-icons-custom{
+    font-family: 'Material Icons' !important;
+    font-size: 14px !important;
+    font-weight: lighter !important;
+    font-style: normal;
+    // display: inline-block;
+    // line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+
+    margin-top: 6px;
+    vertical-align: middle !important;
+
+    -webkit-font-smoothing: antialiased;
+    
+    text-rendering: optimizeLegibility;
+
+  
+    -moz-osx-font-smoothing: grayscale;
+
+  
+    font-feature-settings: 'liga';
+}
+
+::ng-deep {
+    .mat-form-field-appearance-outline .mat-form-field-outline {
+       color: rgb(83, 175, 117) !important;
+       height: 40px;
+    }
+    mat-form-field {
+       .mat-hint, input, ::placeholder, .mat-form-field-label {
+        //   color: white;
+        padding-top: 0px;
+        margin-top: 0px; 
+        height: 15px;
+       }
+    }
+ }
+
+
+.nav-hover:hover{
+    background-color:rgb(221, 221, 221);
+}
+// #FF3F81
+.search{
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid rgb(83, 175, 117) !important; 
+    margin : 0px 0 0 10px;
+    padding:  5px 0 0 10px;
+    color: rgb(80, 78, 78);
+}
+.title:focus{
+    cursor: pointer !important;
+}
+.ro-title-image {
+    // float: right;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    width:300px;
+    // margin-right: auto;
+    // margin-left: 50px;
+    // margin-right: auto;
+}
+
+.ro-title-image-sm {
+    float: right;
+    display: block;
+    margin-left: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    width:25px;
+    // margin-right: auto;
+    // margin-left: 50px;
+    // margin-right: auto;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Arvo');
+
+.ro-title {
+    display: block;
+    // margin-left: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: auto;
+    color: white;
+    margin-left:auto;
+    // vertical-align: middle !important;
+    font-size: 2em;
+    font-family: neon 80s !important;
+}
+
+.ro-title-sm {
+    display: block;
+    // margin-left: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: auto;
+    color: white;
+    margin-left:10px;
+    // vertical-align: middle !important;
+    font-size: 1em;
+    font-family: 'Arvo', serif !important;
+}
+.topic_card{
+    width: 100%;
+    // background-color: rgb(241, 241, 241);
+    // background-color: rgb(250, 250, 250);
+    // border-radius: 5px;
+    border-radius: 0px 0px 20px 20px;
+    // border-top: 2px solid #58a746;
+    max-height: 145px;
+    overflow: hidden;
+    padding-top:0 !important;
+    // border-top: 2px solid #FF3F81;
+}
+.topicImage{
+    // max-width: 300px;
+    height: 145px;
+    margin: 0px 0px 0px 0px ;
+    padding-left:0px;
+    object-fit: fill;
+    // border-radius:50%;
+
+    // border-top: 2px solid #FF3F81;
+}
+.paragraph{
+    max-height: 50px !important;
+    overflow: hidden;
+    color: rgb(44, 44, 44);
+}
+h4{
+    // margin-top: -20px;
+    color:#466aa7; 
+}
+h5{
+    color:#466aa7; 
+}
+h3{
+    color:#466aa7; 
+}
+* {
+    outline: none !important;
+}
+
+a {
+    text-decoration: none !important;
+    color:#39935A; 
+}
