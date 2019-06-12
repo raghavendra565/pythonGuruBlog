@@ -16,6 +16,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatChipsModule} from '@angular/material/chips';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import {MatChipsModule} from '@angular/material/chips';
     MatInputModule,
     MatSnackBarModule,
     HttpClientModule,
-    MatChipsModule
+    MatChipsModule,
+    MatTooltipModule
   ],
   exports:[
     MatToolbarModule,
@@ -55,7 +57,8 @@ import {MatChipsModule} from '@angular/material/chips';
     MatInputModule,
     MatSnackBarModule,
     HttpClientModule,
-    MatChipsModule
-  ],
+    MatChipsModule,
+    MatTooltipModule
+  ]
 })
 export class SharedModule { }

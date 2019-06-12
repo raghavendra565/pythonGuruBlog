@@ -1,117 +1,433 @@
-<mat-toolbar class="mat-elevation-z5">
-  <mat-toolbar-row>
-    <!-- (click)="sidenav.toggle()"  -->
-    <button mat-icon-button style="outline: none" class=" d-block d-sm-block d-md-none">
-      <mat-icon class="ro-material-icon">menu</mat-icon>
-    </button>
-    <!-- for above small screens -->
-    <!-- <img class="ro-title-image d-none d-sm-block" src="assets/images/title/pythongurutitle2.png" alt="Image"> -->
-    <p class="ro-title-image1 d d-flex justify-content-center d-none d-sm-none d-md-block" (click)="home()">PYTHON</p>
-    <p class="ro-title-image d d-flex justify-content-center d-none d-sm-none d-md-block" (click)="home()">GURU</p>
-    <p class="ro-title-image-sm d d-flex justify-content-center d-block d-sm-block d-md-none" (click)="home()">PYTHON
-      GURU</p>
-    <div style="margin-right:auto; margin-left: -30px;">
-      <img src="assets/images/title/Naren-pic.png" width="100px">
+<mat-toolbar class="mat-elevation-z4 mat-elevation-custom">
+  <mat-toolbar-row style="padding: 0px 0px 0px 0px !important;">
+    <div class="container-fluid" style="max-width: 1200px;">
+      <div class="d-none d-sm-none d-md-block">
+        <div class="row">
+          <div class="col-lg-8 d-flex justify-content-center">
+            <!-- For large Screens -->
+            <mat-toolbar-row style="margin-top: 20px;" >
+              <p (click)="home()">
+                <!-- <span class="ro-title-image1">PYTHON</span> d-flex justify-content-center margin-right: auto; margin-left: auto; -->
+                <!-- <span class="ro-title-image">GURU</span> -->
+                <span>
+                  <img src="../../assets/images/title/logo.png" width="200px">
+                </span>
+              </p>
+              <p style="margin-left: auto; margin-right: auto;" (click)="home()">
+                <span
+                  style="font-family: Poppins Light !important; font-size: 37px; 
+                  letter-spacing: 3px; margin-top: auto; margin-bottom: auto; margin-left: auto; text-shadow: 0px 1px 3px #b1abab;">THE
+                  DATA SCIENTIST</span>
+              </p>
+              <div style="margin-left: -15px;" (click)="home()" >
+                <span>
+                  <!-- margin-right: auto; margin-left: -30px;-->
+                  <img src="assets/images/title/Naren.png" width="80px">
+                </span>
+              </div>
+            </mat-toolbar-row>
+          </div>
+          <div class="col-lg-4 d-flex justify-content-center">
+            <div class="d-md-none d-lg-block">
+              <!-- <div class="row" style="margin-top: 10px;">
+                <div class="col-md-6" style="margin-right: auto; margin-left: auto;">
+                  <p style="font-size: 12px; height: 12px;">
+                    <mat-icon class="material-icons-custom" style="color: #58a746">mail</mat-icon> info@pythonguru.in
+                  </p>
+                  <p style="font-size: 12px; height: 12px;">
+                    <mat-icon class="material-icons-custom" style="color: #466aa7">call</mat-icon> +91 95156 69077
+                  </p>
+                </div>
+                <div class="col-md-6" style="font-size: 12px; height:30px;">
+                  <p><span style="color: #58a746">Address: </span>Rossum Computing,</p>
+                  <p style="margin-top: -30px;"> 806, 8th floor, Manjeera Trinity</p>
+                  <p style="margin-top: -30px;">Corporate, KPHB, Hyderabad.</p>
+                </div>
+              </div> -->
+              <div class="row" style="height: 20px; margin-top: 5px;">
+                <div class="col-md">
+                    <span style="font-size: 12px;"><mat-icon class="material-icons-custom" style="color: #58a746">mail</mat-icon>info@pythonguru.in</span>&nbsp;
+                    <span style="font-size: 12px;"><mat-icon class="material-icons-custom" style="color: #466aa7">call</mat-icon>+91 95156 69077</span>
+                </div>
+              </div>
+              <div class="row" style="height: 20px;">
+                  <div class="col-md">
+                      <span style="font-size: 12px; height: 12px;">Address: &nbsp;&nbsp; Rossum Computing, &nbsp;806, &nbsp;8<sup>th</sup> &nbsp;floor, </span>
+                      <p style="margin-top: -15px;"><span style="font-size: 12px; height: 12px;">Manjeera Trinity Corporate, &nbsp;KPHB, &nbsp;Hyderabad.</span></p>
+                  </div>
+                </div>
+            </div>
+
+            <!-- <div class="row">
+            <div class="col-md" style="margin-top: -15px;">
+                <span style="font-size: 12px;height: 12px;"><mat-icon class="material-icons-custom" style="color: #58a746">mail</mat-icon> info@pythonguru.in</span>&nbsp;&nbsp;
+                <span style="font-size: 12px;height: 12px;"><mat-icon class="material-icons-custom" style="color: #466aa7">call</mat-icon> +91 95156690777</span>
+            </div>
+          </div> -->
+          </div>
+        </div>
+      </div>
+
+      <!-- For Small screens -->
+      <div class="d-block d-sm-block d-md-none">
+        <!-- <div class="row" style="margin-top: auto; margin-bottom: auto; border: 1px solid red;">
+          <div class="col-md"> -->
+          <div style="margin-top: auto; margin-bottom: auto;">
+            <mat-toolbar-row style="padding: 0px 0px 0px 0px !important; margin-top: 8px; ">
+              <div style="width: 100%;" class="d-flex justify-content-center">
+                <div>
+                  <button mat-icon-button style="outline: none;" align="left">
+                    <mat-icon class="material-icons" (click)="snav.toggle()">menu</mat-icon>
+                  </button>
+                </div>
+                <div style="margin-left: auto;">
+                  <img src="../../assets/images/title/logo.png" height="35px" (click)="home()">
+                </div>
+                <div style="margin-right: auto; " align="right">
+                  <img src="assets/images/title/Naren.png" height="35px" (click)="home()">
+                </div>
+              </div>
+              <!-- <p class="ro-title-image-sm d d-flex justify-content-center" (click)="home()">
+                <span style="font-family: 'super comic' !important;" class="ml-3">PYTHON</span><span
+                  style="color: #466aa7; font-family: 'super comic' !important;">GURU</span>
+                <span>
+                  <img src="assets/images/title/Naren.png" width="35px">
+                </span>
+              </p> -->
+            </mat-toolbar-row>
+            <div style="width: 100%;" class="d-flex justify-content-center">
+              <span style="font-family: Poppins Light !important; font-size: 13px; margin-top: -10px; margin-left: 40px;
+                letter-spacing: 6px; text-shadow: 0px 1px 3px #b1abab;">THE DATA SCIENTIST</span>
+            </div>
+          </div>
+          <!-- </div>
+        </div> -->
+        <!-- <mat-toolbar>
+          <span>THE DATA SCIENTIST</span>
+        </mat-toolbar> -->
+      </div>
     </div>
-    <!-- for below small screens -->
-    <!-- <img class="ro-title-image-sm d-block d-sm-none" src="assets/images/credito.png" alt="Image"> -->
-    <!-- <p class="ro-title-sm d-block d-sm-none">PYTHON GURU</p> -->
-
-    <!-- <button mat-raised-button class="logout-button d-none d-sm-block" [routerLink]="['/login']">Logout
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="" width="20px">
-      <mat-icon class="ro-material-icon">logout-button</mat-icon>
-    </button>
-    <img [routerLink]="['/login']" class="d-block d-sm-none" src="" width="20px" style="margin-right: 10px;"> -->
   </mat-toolbar-row>
-
 </mat-toolbar>
 
-<mat-toolbar class="mat-elevation-navbar d-none d-sm-none d-md-block ">
-  <div class="row no-gutters" style="width:100%; cursor: pointer;">
-    <div class="nav-hover col-md">
+<!-- mat-elevation-z4 -->
+<mat-toolbar class="mat-elevation-navbar d-none d-sm-none d-md-block mat-elevation-z3">
+  <div class="container-fluid" style="max-width:1200px; cursor: pointer;">
+    <div class="row  no-gutters">
+      <div class="nav-hover col-md">
+        <div class="d-flex justify-content-center mt-1" (click)="router.navigate(['/home'])">
+          <!-- <p class="roboto-font-light">Home</p> -->
+          <img src="../../assets/images/home2.png" height="30px" style="object-fit: contain;">
+        </div>
+      </div>
+      <div class="nav-hover1 col-md">
+        <div class="d-flex justify-content-center mt-1" (click)="router.navigate(['/home/courses'])">
+          <p class="roboto-font-light">Courses</p>
+        </div>
+      </div>
+
+      <div class="nav-hover col-md">
+        <div class="d-flex justify-content-center mt-1" (click)="router.navigate(['/home/pydocs'])">
+          <p style="font-family: 'Roboto Light' !important;">Free Material</p>
+        </div>
+      </div>
+      <div class="nav-hover1 col-md">
+        <div class="d-flex justify-content-center mt-1">
+          <p class="roboto-font-light">Videos</p>
+        </div>
+      </div>
+      <div class="nav-hover col-md">
+        <div class="d-flex justify-content-center mt-1">
+          <p class="roboto-font-light">Gallery</p>
+        </div>
+      </div>
+      <div class="nav-hover1 col-md">
+        <div class="dropdown">
+          <div class="mt-1 mx-4 roboto-font-light" style="width: 100%;">Downloads</div>
+          <div class="dropdown-content">
+            <a href="https://repo.anaconda.com/archive/Anaconda3-2019.03-MacOSX-x86_64.pkg"
+              class="roboto-font-light">Python for Mac</a>
+            <a href="https://repo.anaconda.com/archive/Anaconda3-2019.03-Windows-x86_64.exe"
+              class="roboto-font-light">Python for Windows</a>
+            <a href="https://repo.anaconda.com/archive/Anaconda3-2019.03-Linux-x86_64.sh"
+              class="roboto-font-light">Python for Linux</a>
+            <a href="https://www.jetbrains.com/pycharm/download/download-thanks.html?platform=mac&code=PCC"
+              class="roboto-font-light">Pycharm
+              for Mac</a>
+            <a href="https://www.jetbrains.com/pycharm/download/download-thanks.html?platform=windows&code=PCC"
+              class="roboto-font-light">Pycharm for Windows</a>
+            <a href="https://www.jetbrains.com/pycharm/download/download-thanks.html?platform=linux&code=PCC"
+              class="roboto-font-light">Pycharm for Linux</a>
+            <a href="http://ubuntu-releases.mirrors.estointernet.in/18.04.2/ubuntu-18.04.2-desktop-amd64.iso"
+              class="roboto-font-light">Ubuntu 18.04 Lts</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-hover col-md">
+        <div class="d-flex justify-content-center mt-1" (click)="router.navigate(['/home/about'])">
+          <p class="roboto-font-light">About</p>
+        </div>
+      </div>
+      <div class="col-md-3 dropdown">
+        <div style="border-bottom: 0.5px solid rgb(216, 213, 213);">
+          <input placeholder="Search for Articles and Authors"
+            style="background-color: transparent; border: none; width:90%; outline: none !important;" (keyup)="searchWord($event)" [(ngModel)]="search_word">
+          <span>
+            <mat-icon class="material-icons-search">search</mat-icon>
+          </span>
+        </div>
+        <div class="dropdown-content">
+          <a class="roboto-font-light" *ngFor="let ser of search_data" [href]="post_link + ser['uid']">{{ser["title"]}}</a>
+          <a *ngIf="search_word && search_data.length == 0">No search results found for word "{{search_word}}"</a>
+
+          <!-- <a href="#"  class="roboto-font-light">.Net</a> -->
+        </div>
+        <!-- <div class="d-flex justify-content-center">
+          <mat-icon class="material-icons mt-2" style="position: absolute; margin-left: -175px;">search</mat-icon>
+          <input type="text" class="form-control mainLoginInput" id="exampleInput"
+            placeholder="&nbsp;&nbsp;Search for Articles and Authors ..."
+            style="background-color: #F2F2F2; outline: none; padding-left: 35px; border: none; border-bottom: 0.5px solid rgb(216, 213, 213);">
+        </div> -->
+        <!-- border: 0.5px solid rgb(216, 213, 213);border-radius: 0.8em; -->
+      </div>
+      <div class="col-md">
+        <div class="dropdown d-flex justify-content-center">
+          <div class="mt-1">
+            <div class="">
+              <mat-icon class="material-icons">more_vert</mat-icon>
+            </div>
+            <div class="dropdown-content">
+              <a href="#" class="roboto-font-light">C++</a>
+              <a href="#" class="roboto-font-light">Java</a>
+              <a href="#" class="roboto-font-light">.Net</a>
+              <a href="#" class="roboto-font-light">Block Chain</a>
+              <a href="#" class="roboto-font-light">Speech to Text</a>
+              <!-- <a href="#"  class="roboto-font-light">.Net</a> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</mat-toolbar>
+
+<mat-sidenav-container class="example-sidenav-container">
+  <mat-sidenav #snav [mode]="'over'" [fixedInViewport]="mobileQuery.matches" style="margin-top: 100px; width: 75%;">
+    <mat-nav-list>
+      <a mat-list-item (click)="router.navigate(['/home']); snav.toggle();">Home</a>
+      <a mat-list-item (click)="router.navigate(['/home/courses']); snav.toggle();">Courses</a>
+      <a mat-list-item (click)="router.navigate(['/home/pydocs']); snav.toggle();">Free Material</a>
+      <a mat-list-item>Videos</a>
+      <a mat-list-item>Gallery</a>
+      <a mat-list-item (click)="router.navigate(['/home/about']);snav.toggle();">About</a>
+      <hr>
+      <h5 align="center">Articles by Topic</h5>
+      <hr>
+      <a mat-list-item
+        (click)="get_by_language(['ai', 'ml', 'artificial intelligence', 'machine learning']); snav.toggle();">AI /
+        Machine Learning</a>
+      <a mat-list-item (click)="get_by_language(['neo4j', 'graphdb']); snav.toggle();">Graph Analytics</a>
+      <a mat-list-item (click)="get_by_language(['django', 'flask']); snav.toggle();">Django / Flask</a>
+      <a mat-list-item (click)="get_by_language(['Blockchain', 'IoT']); snav.toggle();">IoT & Blockchain</a>
+      <a mat-list-item (click)="get_by_language(['python']); snav.toggle();">Programming</a>
+      <a mat-list-item (click)="get_by_language(['oops', 'design patterns']); snav.toggle();">Design & Architecture</a>
+      <a mat-list-item
+        (click)="get_by_language(['concurrency', 'threading', 'multi threading', 'multi processing', 'parellel processing']); snav.toggle();">Concurrency</a>
+      <a mat-list-item (click)="get_by_language(['angular', 'typescript', 'flutter', 'dart']); snav.toggle();">Angular &
+        Flutter</a>
+      <br>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content (scroll)="scrollHandler($event)">
+    <div class="container-fluid" style="max-width: width 1200px;">
+      <a class="return-to-top" *ngIf="scroll_flag" (click)="scroll_fun($event)"><mat-icon class="material-icons-scroll">keyboard_arrow_up</mat-icon></a>
+      <div style="margin-top: 120px;">
+        <br>
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+
+<!-- rgb(202, 202, 202) -->
+<div width="100%" class="footer mat-elevation-z4">
+  <div class="container-fluid d-flex justify-content-center" style="max-width: 1200px;">
+    <div class="row" style="width:100%; padding-top:50px;">
+      <div class="container-fluid" style="width:1200px;">
+        <div class="row">
+          <div class="col-md">
+            <div class="d-flex justify-content-center">
+              <h4 style="color:#313131;letter-spacing: 2px;"><span style="color: #58a746;"><b>GET</b></span><b> IN
+                </b><span style="color: #466aa7;"><b>TOUCH</b></span></h4>
+            </div><br> 
+          </div>
+        </div>
+        <div class="row mb-4 d-flex justify-content-center" style="margin-top: -40px !important;">
+          <div class="col-md d-flex justify-content-center">
+            <p style="letter-spacing: 1px;font-family: 'Roboto Light' !important;">
+              Feel free to drop by any time explore our space.
+            </p>
+          </div>
+        </div>
+        <div class="row d-flex justify-content-center" style="width: 100%; margin-left: auto; margin-right: auto;">
+          <div class="col-md-12 col-sm-12 d-flex justify-content-center">
+            <!-- <div class=" d-flex justify-content-center"> -->
+            <img src="assets/images/blocks/facebook.png" class="footer-icon" (click)="openLink(1)">
+            <!-- </div> -->
+            <!-- </div>
+          <div class="col-md-1 col-sm-2 d-flex justify-content-center"> -->
+            <img src="assets/images/blocks/twitter.png" class="footer-icon" (click)="openLink(2)">
+            <!-- </div>
+          <div class="col-md-1 col-sm-2 d-flex justify-content-center"> -->
+            <img src="assets/images/blocks/Linkedin.png" class="footer-icon" (click)="openLink(3)">
+            <!-- </div>
+          <div class="col-md-1 col-sm-2 d-flex justify-content-center"> -->
+            <img src="assets/images/blocks/youtube.png" class="footer-icon" (click)="openLink(4)">
+          </div>
+        </div>
+        <!-- <div class="row d-flex justify-content-center" style="width:100%; margin: auto;">
+          <div class="col-lg-12 d-flex justify-content-center"
+            style="color: #313131; letter-spacing: 1px;font-family: 'Roboto Light' !important;">
+            Address: Rossum Computing, 806, 8th floor, Manjeera Trinity Corporate, KPHB, Hyderabad.
+          </div>
+        </div> -->
+        <div class="row mb-3 d-flex justify-content-center" style="width:100%; margin-left: auto; margin-right: auto;">
+          <div class="col-lg-12 d-flex justify-content-center"
+            style="color: #313131; letter-spacing: 1px;font-family: 'Roboto Light' !important;">
+            <br>
+            Copyrights reserved &copy; 2019
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <mat-toolbar-row style="margin-top: 20px;">
+    <p class="d-flex justify-content-center" (click)="home()" style="margin-left: auto; margin-right: auto;">
+      <span class="ro-title-image1">PYTHON</span>
+      <span class="ro-title-image">GURU</span>
+      <span style="margin-left: -30px; margin-right: auto;">
+        <img src="assets/images/title/Naren.png" width="100px">
+      </span>
+    </p>
+  </mat-toolbar-row> -->
+
+<!-- <p class=" d d-flex justify-content-center" (click)="home()"></p> -->
+<!-- <p class="ro-title-image-sm d d-flex justify-content-center d-block d-sm-block d-md-none" (click)="home()">
+              <span>PYTHON</span><span style="color: #466aa7">&nbsp;GURU</span>
+            </p> -->
+
+<!-- <button mat-icon-button style="outline: none" class="d-block d-sm-block d-md-none">
+              <mat-icon class="ro-material-icon" (click)="snav.toggle()">menu</mat-icon>
+            </button> -->
+
+<!-- <p class="ro-title-image1 d d-flex justify-content-center d-none d-sm-none d-md-block" (click)="home()">PYTHON</p> -->
+<!-- <p class="ro-title-image d d-flex justify-content-center d-none d-sm-none d-md-block" (click)="home()">GURU</p> -->
+
+<!-- <div class="col-lg-4 col-sm-12 col-md-4">
+        <h4 class="d-flex justify-content-center" style="width:100%; color: #3f8ccb;">Our Services</h4><br>
+        <span>
+          <span><a href="https://www.rossum.io/">Rossum Computing Pvt Ltd</a></span> is a company which is
+          associated
+          with ProGuru Blog. Rossum Computing provides
+          services across globe in Technologies like Blockchain, AI & ML, IoT, AR/VR.
+        </span>
+      </div>
+
+      <div class="col-lg-4 col-sm-12 col-md-4">
+        <h4 class="d-flex justify-content-center" style="width:100%; color: #3f8ccb;">Start a Course</h4><br>
+        <p>
+          For courses regarding Python, Machine Learning and Data Science visit the following link <span>
+            <a href="https://www.narentrainings.com/courses">www.narentrainings.com</a> </span>
+        </p>
+      </div>
+
+      <div class="col-lg-4 col-sm-12 col-md-4">
+        <h4 class="d-flex justify-content-center" style="width:100%; color: #3f8ccb;">About Us</h4><br>
+        <p>
+          Naren Allam started Python trainings since 2007 and this made him a prominent Python trainer and
+          students
+          often call him Python Guru and he is highly respected by his massive student following.
+        </p>
+      </div> -->
+<!-- <div class="row">
+        <div class="col-xl-12">
+          <div class="d-flex justify-content-center">
+            <img src="assets/images/hero/pythonguru6.jpg" width="800px" height="240px;">
+          </div>
+        </div>
+      </div> -->
+<!-- <div class="col-md">
+        <div class="d-flex justify-content-center mt-1">
+          <mat-icon class="material-icons">more_vert</mat-icon>
+        </div>
+      </div> -->
+<!-- <div class="nav-hover1 col-md">
+        <div class="d-flex justify-content-center mt-1">
+          <p>IoT</p>
+        </div>
+      </div>
+      <div class="nav-hover col-md">
+        <div class="d-flex justify-content-center  mt-1">
+          <p>AR/VR/MR</p>
+        </div>
+      </div>
+      <div class="col-md">
+        <div class="d-flex justify-content-center mt-1">
+          <p>
+            <mat-icon class="material-icons">more_vert</mat-icon>
+          </p>
+        </div>
+      </div> -->
+<!-- <div class=" nav-hover1 col-md">
+        <div class="d-flex justify-content-center mt-1">
+          <p>.NET</p>
+        </div>
+      </div> -->
+<!-- <div class="nav-hover col-md">
       <div class="d-flex justify-content-center mt-1">
-        <p>Python</p>
+        <p>JAVA</p>
       </div>
     </div>
     <div class="nav-hover1 col-md">
       <div class="d-flex justify-content-center mt-1">
-        <p>Machine Learning</p>
+        <p>Angular</p>
       </div>
     </div>
     <div class="nav-hover col-md">
       <div class="d-flex justify-content-center mt-1">
-        <p>C++</p>
+        <p>Flutter</p>
       </div>
     </div>
     <div class="nav-hover1 col-md">
       <div class="d-flex justify-content-center mt-1">
-        <p>Graph Analytics</p>
-      </div>
-    </div>
-    <div class="nav-hover col-md">
-      <div class="d-flex justify-content-center mt-1">
-        <p>Blockchain</p>
-      </div>
-    </div>
-    <div class="nav-hover1 col-md">
-      <div class="d-flex justify-content-center mt-1">
-        <p>IoT</p>
+        <p>GO</p>
       </div>
     </div>
     <div class="nav-hover col-md">
       <div class="d-flex justify-content-center  mt-1">
-        <p>AR/VR/MR</p>
+        <p>Algorithms</p>
       </div>
     </div>
-    <div class=" nav-hover1 col-md">
-      <div class="d-flex justify-content-center mt-1">
-        <p>.NET</p>
+    <div class="nav-hover1 col-md">
+      <div class="d-flex justify-content-center  mt-1">
+        <p>DevOps</p>
       </div>
     </div>
-
-
     <div class="nav-hover col-md">
-        <div class="d-flex justify-content-center mt-1">
-          <p>JAVA</p>
-        </div>
+      <div class="d-flex justify-content-center  mt-1">
+        <p>BigData</p>
       </div>
-      <div class="nav-hover1 col-md">
-        <div class="d-flex justify-content-center mt-1">
-          <p>Angular</p>
-        </div>
+    </div>
+    <div class="nav-hover1 col-md">
+      <div class="d-flex justify-content-center  mt-1">
+        <p>Programming</p>
       </div>
-      <div class="nav-hover col-md">
-        <div class="d-flex justify-content-center mt-1">
-          <p>Flutter</p>
-        </div>
-      </div>
-      <div class="nav-hover1 col-md">
-        <div class="d-flex justify-content-center mt-1">
-          <p>GO</p>
-        </div>
-      </div>
-      <div class="nav-hover col-md">
-        <div class="d-flex justify-content-center  mt-1">
-          <p>Algorithms</p>
-        </div>
-      </div>
-      <div class="nav-hover1 col-md">
-        <div class="d-flex justify-content-center  mt-1">
-          <p>DevOps</p>
-        </div>
-      </div>
-      <div class="nav-hover col-md">
-        <div class="d-flex justify-content-center  mt-1">
-          <p>BigData</p>
-        </div>
-      </div>
-      <div class="nav-hover1 col-md">
-        <div class="d-flex justify-content-center  mt-1">
-          <p>Programming</p>
-        </div>
-      </div>
-  </div>
-</mat-toolbar>
+    </div> -->
 <!-- <mat-toolbar class="mat-elevation-navbar1 d-none d-sm-none d-md-block ">
   <div class="row no-gutters" style="width:100%; cursor: pointer; font-family: 'Roboto Light' !important;">
 
@@ -157,93 +473,3 @@
     </div>
   </div>
 </mat-toolbar> -->
-
-<div class="container-fluid" style="max-width: width 1200px;">
-  <div style="margin-top: 160px;">
-    <!-- <div class="row">
-        <div class="col-xl-12">
-          <div class="d-flex justify-content-center">
-            <img src="assets/images/hero/pythonguru6.jpg" width="800px" height="240px;">
-          </div>
-        </div>
-      </div> -->
-    <br>
-    <router-outlet></router-outlet>
-  </div>
-</div>
-<!-- rgb(202, 202, 202) -->
-<div width="100%" style="background-color: #F2F2F2 ; bottom: 0 !important">
-  <div class="container-fluid" style="max-width:1200px;">
-    <div class="row" style="width:100%; min-height: 404px;  padding-top:60px;">
-      <!-- <div class="col-lg-1" style="margin-right:120px; ">
-      </div> -->
-      <div class="col-lg-4 col-sm-12 col-md-4">
-        <h4 class="d-flex justify-content-center" style="width:100%; color: #3f8ccb;">Start a Course</h4><br>
-        <p>
-          For courses regarding Python, Machine Learning and Data Science visit the following link <span>
-            <a href="https://www.narentrainings.com/courses">www.narentrainings.com</a> </span>
-        </p>
-      </div>
-
-      <div class="col-lg-4 col-sm-12 col-md-4">
-        <h4 class="d-flex justify-content-center" style="width:100%; color: #3f8ccb;">Our Services</h4><br>
-        <span>
-          <span><a href="https://www.rossum.io/">Rossum Computing Pvt Ltd</a></span> is a company which is assosiated
-          with ProGuru Blog. Rossum Computing provides
-          services across globe in Technologies like Blockchain, AI & ML, IoT, AR/VR.
-        </span>
-      </div>
-
-      <div class="col-lg-4 col-sm-12 col-md-4">
-        <h4 class="d-flex justify-content-center" style="width:100%; color: #3f8ccb;">About Us</h4><br>
-        <p>
-          <!-- Narendra Allam, is a renowned trainer and mentor in the IT industry.,  his passion on teaching made him one of the top IT trainers in INDIA. he started software trainings in the year, 2005. -->
-          Naren Allam started Python trainings since 2007 and this made him a prominent Python trainer and students
-          often call him Python Guru and he is highly respected by his massive student following.
-        </p>
-      </div>
-      <!-- <div class="col-lg-1">
-
-  </div> -->
-      <div class="row" style="width:100%;">
-        <!-- <div class="col-lg-1">
-
-    </div> -->
-        <div class="col-lg-2 col-md-12 col-sm-12">
-          <div class="d-flex justify-content-center">
-            <h5 style="color:#313131;">Follow Us On:</h5>
-          </div>
-        </div>
-        <div class="col-lg-2 col-md-12 col-sm-12 d-flex justify-content-center">
-          <div class=" d-flex justify-content-center">
-            <img src="assets/images/blocks/Group 167.png" height="32px" width="187px">
-          </div>
-        </div>
-        <div class="col-lg-2 col-md-12 col-sm-12 d-flex justify-content-center">
-          <img src="assets/images/blocks/Group 168.png" height="32px" width="187px">
-        </div>
-        <div class="col-lg-2 col-md-12 col-sm-12 d-flex justify-content-center">
-          <img src="assets/images/blocks/Group 169.png" height="32px" width="187px">
-        </div>
-        <div class="col-lg-2 col-md-12 col-sm-12 d-flex justify-content-center">
-          <img src="assets/images/blocks/Group 170.png" height="32px" width="187px">
-        </div>
-
-        <!-- <div class="col-lg-1">
-
-    </div> -->
-      </div>
-      <div class="row" style="width:100%; ">
-        <!-- <div class="col-lg-1">
-
-    </div> -->
-        <div class="col-lg-12 d-flex justify-content-center" style="color: #313131;">
-          <strong> Copyrights reserved @2019 </strong>
-        </div>
-        <!-- <div class="col-lg-1">
-
-    </div> -->
-      </div>
-    </div>
-  </div>
-</div>

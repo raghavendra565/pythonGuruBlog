@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { HighlightService } from '../highlight.service';
-
+import { error } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'app-homechild',
@@ -16,19 +16,50 @@ export class HomechildComponent implements OnInit {
   data: Array<any> = [];
   list_blogs: Array<any> = [];
 
+  most_popular: any = [];
+
   posts = [];
   no_of_posts: number = 10;
   topics = [];
   no_of_topics: number = 10;
+  post_link: any;
   ngOnInit() {
     this.generatePosts();
     this.getBlogs();
+
+    this.post_link = window.location.origin;
+    this.post_link = this.post_link + "/#/home/post/";
   }
 
   @ViewChild('videoPlayer') videoplayer: ElementRef;
 
   toggleVideo(event: any) {
     this.videoplayer.nativeElement.play();
+  }
+
+  get_by_language(langages: Array<any>) {
+    var url = environment.server_url + 'order/language';
+    let headers = new HttpHeaders();
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      })
+    }
+    var body = JSON.stringify({ "languages": langages })
+    this.http.post(url, body, httpOptions).subscribe(data => {
+      // console.log(data);
+
+      let navigation: NavigationExtras = {
+        queryParams: {
+          "articles": JSON.stringify(data["data"])
+        }, skipLocationChange: true
+      };
+      this.router.navigate(['/home/postsLanguage'], navigation);
+
+    }, error => {
+      console.log(error);
+    })
   }
 
   getBlogs() {
@@ -72,8 +103,13 @@ export class HomechildComponent implements OnInit {
           }
         }
       }
-      console.log(this.list_blogs);
-      localStorage.setItem('all_blogs_data', JSON.stringify(this.list_blogs));
+      // localStorage.setItem('all_blogs_data', JSON.stringify(this.list_blogs));
+
+      this.most_popular = this.list_blogs.map(x => Object.assign({}, x));
+      this.most_popular.sort(function (a, b) {
+        return  b.clicks - a.clicks
+      })
+      // console.log(this.most_popular);
     },
       error => {
         console.log(error);
@@ -81,11 +117,9 @@ export class HomechildComponent implements OnInit {
   }
 
   postdata(data: any) {
-    localStorage.setItem('data', JSON.stringify(data));
-    this.router.navigate(['post']);
+    // localStorage.setItem('data', JSON.stringify(data));
+    this.router.navigate(['/home/post', data['uid']]);
   }
-
-
 
   generatePosts() {
     for (let i = 0; i < this.no_of_posts; i++) {
@@ -95,8 +129,10 @@ export class HomechildComponent implements OnInit {
       this.topics.push(i)
     }
   }
+
   postdetailspage() {
-    this.router.navigate(['post']);
+    this.router.navigate(['/home/post']);
   }
+
 
 }

@@ -1,0 +1,28 @@
+.heading {
+    color: #58a746;
+}
+
+.card-header1 {
+    background-color: #466aa7; 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    right: 0;
+    color: white;
+}
+
+.card-header-custom {
+    position: relative;
+    width:100% !important; 
+    // color: rgb(75, 75, 75);
+    top: 0;
+    right: 0;
+    left: 0;
+}
+
+mat-card {
+    // min-width: 580px;
+    max-width: 580px;
+    min-height: 720px;
+    text-align: justify;
+}

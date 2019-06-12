@@ -4,9 +4,10 @@
 
 export const environment = {
   production: false,
-  server_url: 'http://134.209.159.70:5000/api/v1/'
+  server_url: 'http://192.168.1.128:5000/api/v1/'
 };
 
+// 134.209.159.70
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.

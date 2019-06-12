@@ -1,0 +1,49 @@
+<div class="container-fluid" style="max-width:1200px; margin-bottom:30px;">
+  <div class="d-none d-sm-none d-md-block">
+    <div style="margin-top: 25px;">
+    </div>
+  </div>
+  <div class="d-block d-sm-block d-md-none">
+    <div style="margin-top: -15px;">
+    </div>
+  </div>
+  <div class="row d-flex justify-content-center">
+    <mat-card class="mat-elevation-z4">
+      <div class="row">
+        <div class="col-md d-flex justify-content-end">
+          <span style="font-size: 12px !important;">Copyrights &copy; 2019. All rights reserved.</span>
+        </div>
+      </div>
+      <div class="row d-flex justify-content-center">
+        <div class="d-none d-sm-none d-md-block">
+          <div class="col-md d-flex justify-content-center">
+            <h2>Python Programming</h2>
+          </div>
+        </div>
+        <div class="d-block d-sm-block d-md-none">
+          <div class="col-md d-flex justify-content-center">
+            <h5>Python Programming</h5>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-lg-12 mb-2" *ngFor="let file of chapters_list1; let i=index;">
+          <div style="border-bottom: 0.5px dotted rgb(165, 163, 163);" class="mx-4">
+            <div class="hand mb-2" (click)="openDoc(chapters_list[i])">
+              <div style="width:100%;" class="row">
+                <div class="col-md-10">
+                  {{file}}
+                </div>
+                <div class="col-md-2 d-flex justify-content-end">
+                  <mat-icon class="material-icons">arrow_forward</mat-icon>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</div>
+<!-- <sup><span ></span></sup> -->

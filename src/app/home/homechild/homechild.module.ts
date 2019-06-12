@@ -6,9 +6,13 @@ import { HomechildRoutingModule } from './homechild-routing.module';
 import { PostComponent, PizzaPartyComponent } from './post/post.component';
 import { HomechildComponent } from './homechild.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { NarentraningsComponent } from './narentranings/narentranings.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
+import { PythondocsComponent } from './pythondocs/pythondocs.component';
+import { LanguageSpecificArticlesComponent } from './language-specific-articles/language-specific-articles.component';
 
 @NgModule({
-  declarations: [PostComponent, HomechildComponent, PizzaPartyComponent],
+  declarations: [PostComponent, HomechildComponent, PizzaPartyComponent, NarentraningsComponent, AboutusComponent, PythondocsComponent, LanguageSpecificArticlesComponent],
   imports: [
     CommonModule,
     HomechildRoutingModule,
