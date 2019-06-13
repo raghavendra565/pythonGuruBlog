@@ -80,11 +80,29 @@
                     <mat-icon class="material-icons" (click)="snav.toggle()">menu</mat-icon>
                   </button>
                 </div>
-                <div style="margin-left: auto;">
+                <div style="margin-left: auto;" *ngIf="!search_flag">
                   <img src="../../assets/images/title/logo.png" height="35px" (click)="home()">
                 </div>
-                <div style="margin-right: auto; " align="right">
+                <div style="margin-right: auto;" *ngIf="!search_flag">
                   <img src="assets/images/title/Naren.png" height="35px" (click)="home()">
+                </div>
+                <div class="dropdown" style="margin-left: auto; margin-right: auto;" *ngIf="search_flag">
+                  <div style="border-bottom: 0.5px solid rgb(216, 213, 213);">
+                    <input placeholder="Search for Articles and Authors"
+                      style="background-color: transparent; border: none; width:90%; outline: none !important;" (keyup)="searchWord($event)" [(ngModel)]="search_word">
+                    <!-- <span>
+                      <mat-icon class="material-icons-search">search</mat-icon>
+                    </span> -->
+                  </div>
+                  <div class="dropdown-content-small">
+                    <a class="roboto-font-light" *ngFor="let ser of search_data" [href]="post_link + ser['uid']">{{ser["title"]}}</a>
+                    <a *ngIf="search_word && search_data.length == 0">No search results found for word "{{search_word}}"</a>
+                  </div>
+                </div>
+                <div>
+                  <button mat-icon-button style="outline: none;" align="right" (click)="toggle_search()">
+                    <mat-icon class="material-icons">search</mat-icon>
+                  </button>
                 </div>
               </div>
               <!-- <p class="ro-title-image-sm d d-flex justify-content-center" (click)="home()">
@@ -96,7 +114,7 @@
               </p> -->
             </mat-toolbar-row>
             <div style="width: 100%;" class="d-flex justify-content-center">
-              <span style="font-family: Poppins Light !important; font-size: 13px; margin-top: -10px; margin-left: 40px;
+              <span style="font-family: Poppins Light !important; font-size: 13px; margin-top: -10px; margin-left: 10px;
                 letter-spacing: 6px; text-shadow: 0px 1px 3px #b1abab;">THE DATA SCIENTIST</span>
             </div>
           </div>

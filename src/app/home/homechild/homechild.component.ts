@@ -3,7 +3,6 @@ import { Router, NavigationExtras } from '@angular/router';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { HighlightService } from '../highlight.service';
-import { error } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'app-homechild',
@@ -16,7 +15,7 @@ export class HomechildComponent implements OnInit {
   data: Array<any> = [];
   list_blogs: Array<any> = [];
 
-  most_popular: any = [];
+  most_popular: Array<any> = [];
 
   posts = [];
   no_of_posts: number = 10;
@@ -37,6 +36,7 @@ export class HomechildComponent implements OnInit {
     this.videoplayer.nativeElement.play();
   }
 
+
   get_by_language(langages: Array<any>) {
     var url = environment.server_url + 'order/language';
     let headers = new HttpHeaders();
@@ -48,8 +48,6 @@ export class HomechildComponent implements OnInit {
     }
     var body = JSON.stringify({ "languages": langages })
     this.http.post(url, body, httpOptions).subscribe(data => {
-      // console.log(data);
-
       let navigation: NavigationExtras = {
         queryParams: {
           "articles": JSON.stringify(data["data"])
@@ -58,9 +56,10 @@ export class HomechildComponent implements OnInit {
       this.router.navigate(['/home/postsLanguage'], navigation);
 
     }, error => {
-      console.log(error);
+      console.debug(error);
     })
   }
+
 
   getBlogs() {
     var url = environment.server_url + 'get/blogs';
@@ -73,53 +72,37 @@ export class HomechildComponent implements OnInit {
     }
 
     this.http.get(url).subscribe(data => {
-      for (let j in data) {
-        for (let i = 0; i < data[j]['blog_data'].length; i++) {
-          if (data[j]['blog_data'][i]['name'] == 'image') {
-            let format_data = data[j]['blog_data'][i]['data'];
-            data[j]['blog_data'][i]['data'] = 'data:image/' + data[j]['blog_data'][i]['file_type'].split('.')[1] + ';base64,' + format_data;
-          }
-        }
-        this.list_blogs.push(data[j]);
-      }
-      let count = 0;
+      var data = data;
       for (let i in data) {
-        // console.log(data[i]['blog_data']);
-        for (let j = 0; j < data[i]['blog_data'].length; j++) {
-          if (data[i]['blog_data'][j]['name'] == 'image') {
-            data[i]['preview_image'] = data[i]['blog_data'][j]['data'];
-            count = count + 1;
-            break;
-          }
-        }
-        for (let j = 0; j < data[i]['blog_data'].length; j++) {
-          if (data[i]['blog_data'][j]['name'] == 'text') {
-            data[i]['preview_text'] = data[i]['blog_data'][j]['data'];
-            data[i]['preview_text'] = data[i]['preview_text'].replace(/<[^>]*>/g, '');
-            data[i]['preview_text'] = data[i]['preview_text'].replace('&nbsp;', '');
-            data[i]['preview_text'] = data[i]['preview_text'].replace('&ensp;', '');
-            data[i]['preview_text'] = data[i]['preview_text'].replace('&emsp;', '');
-            break;
-          }
-        }
+        data[i]['preview_text'] = data[i]['preview_text'].replace(/<[^>]*>/g, '');
+        data[i]['preview_text'] = data[i]['preview_text'].replace('&nbsp;', '');
+        data[i]['preview_text'] = data[i]['preview_text'].replace('&ensp;', '');
+        data[i]['preview_text'] = data[i]['preview_text'].replace('&emsp;', '');
+        this.list_blogs.push(data[i]);
       }
-      // localStorage.setItem('all_blogs_data', JSON.stringify(this.list_blogs));
+    },error => {
+        console.debug(error);
+    })
 
-      this.most_popular = this.list_blogs.map(x => Object.assign({}, x));
-      this.most_popular.sort(function (a, b) {
-        return  b.clicks - a.clicks
-      })
-      // console.log(this.most_popular);
-    },
-      error => {
-        console.log(error);
-      })
+    var url1 = environment.server_url + 'get/popular';
+    this.http.get(url1).subscribe(data => {
+      for (let i in data) {
+        data[i]['preview_text'] = data[i]['preview_text'].replace(/<[^>]*>/g, '');
+        data[i]['preview_text'] = data[i]['preview_text'].replace('&nbsp;', '');
+        data[i]['preview_text'] = data[i]['preview_text'].replace('&ensp;', '');
+        data[i]['preview_text'] = data[i]['preview_text'].replace('&emsp;', '');
+        this.most_popular.push(data[i]);
+      }
+    }, error => {
+      console.debug(error)
+    })
   }
+
 
   postdata(data: any) {
-    // localStorage.setItem('data', JSON.stringify(data));
     this.router.navigate(['/home/post', data['uid']]);
   }
+
 
   generatePosts() {
     for (let i = 0; i < this.no_of_posts; i++) {
@@ -130,9 +113,36 @@ export class HomechildComponent implements OnInit {
     }
   }
 
-  postdetailspage() {
-    this.router.navigate(['/home/post']);
-  }
-
-
 }
+
+// for (let j in data) {
+//   for (let i = 0; i < data[j]['blog_data'].length; i++) {
+//     if (data[j]['blog_data'][i]['name'] == 'image') {
+//       let format_data = data[j]['blog_data'][i]['data'];
+//       data[j]['blog_data'][i]['data'] = 'data:image/' + data[j]['blog_data'][i]['file_type'].split('.')[1] + ';base64,' + format_data;
+//     }
+//   }
+//   this.list_blogs.push(data[j]);
+// }
+// let count = 0;
+// for (let i in data) {
+//   // console.log(data[i]['blog_data']);
+//   for (let j = 0; j < data[i]['blog_data'].length; j++) {
+//     if (data[i]['blog_data'][j]['name'] == 'image') {
+//       data[i]['preview_image'] = data[i]['blog_data'][j]['data'];
+//       count = count + 1;
+//       break;
+//     }
+//   }
+//   for (let j = 0; j < data[i]['blog_data'].length; j++) {
+//     if (data[i]['blog_data'][j]['name'] == 'text') {
+//       data[i]['preview_text'] = data[i]['blog_data'][j]['data'];
+//       data[i]['preview_text'] = data[i]['preview_text'].replace(/<[^>]*>/g, '');
+//       data[i]['preview_text'] = data[i]['preview_text'].replace('&nbsp;', '');
+//       data[i]['preview_text'] = data[i]['preview_text'].replace('&ensp;', '');
+//       data[i]['preview_text'] = data[i]['preview_text'].replace('&emsp;', '');
+//       break;
+//     }
+//   }
+// }
+// localStorage.setItem('all_blogs_data', JSON.stringify(this.list_blogs));

@@ -34,17 +34,14 @@ export class PostComponent implements OnInit {
   all_blogs_data: any;
   uid:any;
   post_link : any;
+
   ngOnInit() {
     window.scroll(0,0);
     this.generatePosts();
-    // this.data = JSON.parse(localStorage.getItem('data'));
-    // this.all_blogs_data = JSON.parse(localStorage.getItem('all_blogs_data'));
-    // console.log(this.all_blogs_data);
     this.post_link = window.location.origin;
     this.post_link = this.post_link + "/#/home/post/";
 
     this.route.paramMap.subscribe(data=>{
-      // console.log(data.get("id"));
       this.uid = data.get("id");
       this.getArticle();
     });
@@ -60,31 +57,30 @@ export class PostComponent implements OnInit {
     var url = environment.server_url + 'get/blog_by_id';
     var body = JSON.stringify({ 'uid': this.uid});
     this.http.post(url, body, httpOptions).subscribe(data => {
-      // console.log(data);
-      this.data = data["data"];
+      this.data = data;
       for(let i = 0; i<this.data["blog_data"].length; i++){
         if(this.data["blog_data"][i]['name'] == 'image'){
           let format_data = this.data['blog_data'][i]['data'];
           this.data['blog_data'][i]['data'] = 'data:image/' + this.data['blog_data'][i]['file_type'].split('.')[1] + ';base64,' + format_data;
         }
       }
-      var articles = data["most_popular"];
-      for (let j in articles) {
-        for (let i = 0; i < articles[j]['blog_data'].length; i++) {
-          if (articles[j]['blog_data'][i]['name'] == 'image') {
-            let format_data = articles[j]['blog_data'][i]['data'];
-            articles[j]['blog_data'][i]['data'] = 'data:image/' + articles[j]['blog_data'][i]['file_type'].split('.')[1] + ';base64,' + format_data;
-            // console.log(articles[j]['blog_data'][i]['data']);
-          }
-        }
-        this.most_popular.push(articles[j]);
-      }
       this.update_clicks();
-      // console.log(this.most_popular);
-
     }, error => {
       this.router.navigate(['/home']);
-      console.log(error);
+      console.debug(error);
+    })
+
+    var url1 = environment.server_url + 'get/popular';
+    this.http.get(url1).subscribe(data => {
+      for (let i in data) {
+        data[i]['preview_text'] = data[i]['preview_text'].replace(/<[^>]*>/g, '');
+        data[i]['preview_text'] = data[i]['preview_text'].replace('&nbsp;', '');
+        data[i]['preview_text'] = data[i]['preview_text'].replace('&ensp;', '');
+        data[i]['preview_text'] = data[i]['preview_text'].replace('&emsp;', '');
+        this.most_popular.push(data[i]);
+      }
+    }, error => {
+      console.debug(error);
     })
   }
 
@@ -102,14 +98,13 @@ export class PostComponent implements OnInit {
     }
     var body = JSON.stringify({ 'uid': this.data['uid'] });
     this.http.post(url, body, httpOptions).subscribe(data => {
-      // console.log(data);
       try {
         this.data["clicks"] = data["clicks"];
       } catch{
-        console.log(data);
+        console.debug(data);
       }
     }, error => {
-      console.log(error)
+      console.debug(error)
     })
   }
 
@@ -147,8 +142,6 @@ export class PostComponent implements OnInit {
 
   postdata(data: any) {
     this.router.navigate(['/home/post', data['uid']]);
-    // localStorage.setItem('data', JSON.stringify(data));
-    // this.ngOnInit();
   }
 
   generatePosts() {
@@ -161,7 +154,6 @@ export class PostComponent implements OnInit {
   }
 
   postComment(data: any) {
-    // console.log(data);
     if (this.comment != null) {
       if (this.commenter_name != null) {
         this.data['comments'].push({ 'comment': this.comment, 'name': this.commenter_name, 'email': this.commenter_email, 'commented_date': new Date() });
@@ -177,11 +169,10 @@ export class PostComponent implements OnInit {
         })
       }
       var body = JSON.stringify({ 'uid': this.data['uid'], 'comment': this.data['comments'][this.data['comments'].length - 1] });
-      // console.log(body);
       this.http.post(url, body, httpOptions).subscribe(data => {
-        console.log(data);
+        console.debug(data);
       }, error => {
-        console.log(error);
+        console.debug(error);
       })
     }
   }
@@ -205,3 +196,7 @@ export class PizzaPartyComponent { }
 // this.most_popular.sort(function (a, b) {
 //   return b.clicks - a.clicks
 // })
+// this.data = JSON.parse(localStorage.getItem('data'));
+// this.all_blogs_data = JSON.parse(localStorage.getItem('all_blogs_data'));
+// localStorage.setItem('data', JSON.stringify(data));
+// this.ngOnInit();

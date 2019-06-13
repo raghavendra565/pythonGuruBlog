@@ -17,6 +17,8 @@ export class HomeComponent implements OnInit {
   search_word: any;
   scroll_flag: boolean = false;
 
+  search_flag: boolean = false;
+
   @HostListener('window:scroll', ['$event']) 
     scrollHandler(event) {
       // console.log(window.pageYOffset);
@@ -38,6 +40,14 @@ export class HomeComponent implements OnInit {
   }
   scroll_fun(event){
     window.scroll(0,0);
+  }
+
+  toggle_search(){
+    if(this.search_flag){
+      this.search_flag = false;
+    }else {
+      this.search_flag = true;
+    }
   }
 
   posts = [];
@@ -119,7 +129,7 @@ export class HomeComponent implements OnInit {
       var body = JSON.stringify({ "keyword": keyword })
       this.http.post(url, body, httpOptions).subscribe(data => {
         this.search_data = data["data"];
-        // console.log(data);
+        console.log(data);
       }, error => {
         console.log(error);
       })

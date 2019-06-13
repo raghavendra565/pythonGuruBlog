@@ -85,8 +85,8 @@
               <div class="row" style="width:100%;">
                 <div class="col-lg-9 col-md-9 pl-4">
                   <h6 style="color:rgb(82, 82, 82); padding-top: 10px;">{{i['language'] | titlecase}}</h6>
-                  <a [href]="post_link + i['uid']"> <h5 *ngIf="i['blog_data'][0]['name'] == 'title'" style="cursor: pointer;">
-                    {{ i['blog_data'][0]['data'] }}
+                  <a [href]="post_link + i['uid']"> <h5 *ngIf="i['title']" style="cursor: pointer;">
+                    {{ i['title'] }}
                   </h5> </a>
                   <p style="color:#58a746 !important; font-size:14px !important; margin-top: -5px !important;">
                     <span style="color:rgb(85, 85, 85);" matTooltip="Date posted" matTooltipClass="example-tooltip-red">
@@ -120,7 +120,7 @@
                   </div>
                 </div>
                 <div class="col-lg-3 col-md-3 d-none d-sm-none d-md-block" style="cursor: pointer; margin-top: 5px;">
-                  <img class="topicImage" [src]="'assets/images/blogIcons/' + i['language'].toLowerCase() + '.png' ">
+                  <img class="topicImage" [src]="'assets/images/blogIcons/' + i['language'] + '.png' ">
                   <!-- <img class="topicImage" src="../../../assets/images/blogIcons/Concurrency.png">
                 <img class="topicImage" src="../../../assets/images/blogIcons/VR2.png">
                 <img class="topicImage" src="../../../assets/images/blogIcons/c++.png">
@@ -150,8 +150,8 @@
             </div>
             <div class="row" *ngFor="let i of most_popular" (click)="postdata(i)">
               <div class="col-md-12">
-                <a [href]="post_link + i['uid']"><h6 class="title" style="color:#466aa7; cursor: pointer;" *ngIf="i['blog_data'][0]['name'] == 'title'">
-                  {{i['blog_data'][0]['data']}}</h6></a>
+                <a [href]="post_link + i['uid']"><h6 class="title" style="color:#466aa7; cursor: pointer;" *ngIf="i['title']">
+                  {{i['title']}}</h6></a>
                 <div style="margin-top:-10px;">
                   <span style="color:#58a746;">{{i['author']['name']}}</span>&nbsp;
                   <span style="color:rgb(82, 82, 82); font-size: 14px;">{{ i['post_date'] | date: 'dd/MM/yy' }}</span>
@@ -180,8 +180,8 @@
           <!-- <div class="row" style="width:100%;">
           <div class="col-lg-12 col-md-12 pl-4"> -->
           <h6 style="color:rgb(82, 82, 82); padding-top: 10px;">{{i['language'] | titlecase}}</h6>
-          <h5 *ngIf="i['blog_data'][0]['name'] == 'title'" style="cursor: pointer;">
-            {{i['blog_data'][0]['data'] }}
+          <h5 *ngIf="i['title']" style="cursor: pointer;">
+            {{i['title']}}
           </h5>
           <p style="color:#58a746 !important; font-size:14px !important; margin-top: -5px !important;">
             <span style="color:rgb(85, 85, 85);">
@@ -222,8 +222,8 @@
             </div>
             <div class="row" *ngFor="let i of most_popular" (click)="postdata(i)">
               <div class="col-md-12">
-                <h6 class="title" style="color:#466aa7; cursor: pointer;" *ngIf="i['blog_data'][0]['name'] == 'title'">
-                  {{i['blog_data'][0]['data']}}</h6>
+                <h6 class="title" style="color:#466aa7; cursor: pointer;" *ngIf="i['title']">
+                  {{i['title']}}</h6>
                 <div style="margin-top:-10px;">
                   <span style="color:#58a746;">{{i['author']['name']}}</span>&nbsp;
                   <span style="color:rgb(82, 82, 82); font-size: 14px;">{{ i['post_date'] | date: 'dd/MM/yy' }}</span>

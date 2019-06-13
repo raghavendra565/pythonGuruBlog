@@ -172,8 +172,8 @@
             <hr>
           </div>
           <div class="col-md-12" *ngFor="let i of most_popular" (click)="postdata(i)">
-            <a [href]="post_link + i['uid']"><h6 class="title" style="color:#466aa7; cursor: pointer;" *ngIf="i['blog_data'][0]['name'] == 'title'">
-              {{i['blog_data'][0]['data']}}</h6></a>
+            <a [href]="post_link + i['uid']"><h6 class="title" style="color:#466aa7; cursor: pointer;" *ngIf="i['title']">
+              {{i['title']}}</h6></a>
             <!-- <p>
               It is the third part of Beautiful Python series by Tk. If you are a totally beginner developer learning
               Python, you should.
