@@ -5,7 +5,7 @@
         <div class="row">
           <div class="col-lg-8 d-flex justify-content-center">
             <!-- For large Screens -->
-            <mat-toolbar-row style="margin-top: 20px;" >
+            <mat-toolbar-row style="margin-top: 20px;">
               <p (click)="home()">
                 <!-- <span class="ro-title-image1">PYTHON</span> d-flex justify-content-center margin-right: auto; margin-left: auto; -->
                 <!-- <span class="ro-title-image">GURU</span> -->
@@ -18,9 +18,16 @@
                   style="font-family: Poppins Light !important; font-size: 37px; 
                   letter-spacing: 3px; margin-top: 20px; margin-bottom: auto; margin-left: auto; margin-right: auto; text-shadow: 0px 1px 3px #b1abab;">THE
                   DATA SCIENTIST</span>
-                  <span class="row d-flex justify-content-center" style="font-family: Poppins Light !important; font-size: 16px; letter-spacing: 0.5px;">Training &nbsp; <mat-icon class="material-icons-dot">fiber_manual_record</mat-icon> Development  &nbsp; <mat-icon class="material-icons-dot">fiber_manual_record</mat-icon>Consultation</span>
+                <span class="row d-flex justify-content-center"
+                  style="font-family: Poppins Light !important; font-size: 14px; letter-spacing: 2px;"> <span
+                    style="color: #58a746; font-family: Poppins Semibold !important;">T</span>raining
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+                    style="color: #58a746; font-family: Poppins Semibold !important;">D</span>evelopment
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+                    style="color: #58a746; font-family: Poppins Semibold !important;">C</span>onsultation</span>
               </p>
-              <div style="margin-left: -15px;" (click)="home()" >
+              <!-- <mat-icon class="material-icons-dot">fiber_manual_record</mat-icon> <mat-icon class="material-icons-dot">fiber_manual_record</mat-icon>-->
+              <div style="margin-left: -15px;" (click)="home()">
                 <span>
                   <!-- margin-right: auto; margin-left: -30px;-->
                   <img src="assets/images/title/Naren.png" width="80px">
@@ -47,16 +54,22 @@
               </div> -->
               <div class="row" style="height: 20px; margin-top: 5px;">
                 <div class="col-md">
-                    <span style="font-size: 12px;"><mat-icon class="material-icons-custom" style="color: #58a746">mail</mat-icon>info@pythonguru.in</span>&nbsp;
-                    <span style="font-size: 12px;"><mat-icon class="material-icons-custom" style="color: #466aa7">call</mat-icon>+91 95156 69077</span>
+                  <span style="font-size: 12px;">
+                    <mat-icon class="material-icons-custom" style="color: #58a746">mail</mat-icon>info@pythonguru.in
+                  </span>&nbsp;
+                  <span style="font-size: 12px;">
+                    <mat-icon class="material-icons-custom" style="color: #466aa7">call</mat-icon>+91 95156 69077
+                  </span>
                 </div>
               </div>
               <div class="row" style="height: 20px;">
-                  <div class="col-md">
-                      <span style="font-size: 12px; height: 12px;">Address: &nbsp;&nbsp; Rossum Computing, &nbsp;806, &nbsp;8<sup>th</sup> &nbsp;floor, </span>
-                      <p style="margin-top: -15px;"><span style="font-size: 12px; height: 12px;">Manjeera Trinity Corporate, &nbsp;KPHB, &nbsp;Hyderabad.</span></p>
-                  </div>
+                <div class="col-md">
+                  <span style="font-size: 12px; height: 12px;">Address: &nbsp;&nbsp; Rossum Computing, &nbsp;806,
+                    &nbsp;8<sup>th</sup> &nbsp;floor, </span>
+                  <p style="margin-top: -15px;"><span style="font-size: 12px; height: 12px;">Manjeera Trinity Corporate,
+                      &nbsp;KPHB, &nbsp;Hyderabad.</span></p>
                 </div>
+              </div>
             </div>
 
             <!-- <div class="row">
@@ -73,56 +86,62 @@
       <div class="d-block d-sm-block d-md-none">
         <!-- <div class="row" style="margin-top: auto; margin-bottom: auto; border: 1px solid red;">
           <div class="col-md"> -->
-          <div style="margin-top: auto; margin-bottom: auto;">
-            <mat-toolbar-row style="padding: 0px 0px 0px 0px !important; margin-top: 8px; ">
-              <div style="width: 100%; margin-top: 15px;" class="d-flex justify-content-center">
-                <div>
-                  <button mat-icon-button style="outline: none;" align="left">
-                    <mat-icon class="material-icons" (click)="snav.toggle()">menu</mat-icon>
-                  </button>
-                </div>
-                <div style="margin-left: auto;" *ngIf="!search_flag">
-                  <img src="../../assets/images/title/logo.png" height="35px" (click)="home()">
-                </div>
-                <div style="margin-right: auto;" *ngIf="!search_flag">
-                  <img src="assets/images/title/Naren.png" height="35px" (click)="home()">
-                </div>
-                <div class="dropdown" style="margin-left: auto; margin-right: auto;" *ngIf="search_flag">
-                  <div style="border-bottom: 0.5px solid rgb(216, 213, 213);">
-                    <input placeholder="Search for Articles and Authors"
-                      style="background-color: transparent; border: none; width:90%; outline: none !important;" (keyup)="searchWord($event)" [(ngModel)]="search_word">
-                    <!-- <span>
+        <div style="margin-top: auto; margin-bottom: auto;">
+          <mat-toolbar-row style="padding: 0px 0px 0px 0px !important; margin-top: 8px; ">
+            <div style="width: 100%; margin-top: 15px;" class="d-flex justify-content-center">
+              <div>
+                <button mat-icon-button style="outline: none;" align="left">
+                  <mat-icon class="material-icons" (click)="snav.toggle()">menu</mat-icon>
+                </button>
+              </div>
+              <div style="margin-left: auto;" *ngIf="!search_flag">
+                <img src="../../assets/images/title/logo.png" height="35px" (click)="home()">
+              </div>
+              <div style="margin-right: auto;" *ngIf="!search_flag">
+                <img src="assets/images/title/Naren.png" height="35px" (click)="home()">
+              </div>
+              <div class="dropdown" style="margin-left: auto; margin-right: auto;" *ngIf="search_flag">
+                <div style="border-bottom: 0.5px solid rgb(216, 213, 213);">
+                  <input placeholder="Search for Articles and Authors"
+                    style="background-color: transparent; border: none; width:90%; outline: none !important;"
+                    (keyup)="searchWord($event)" [(ngModel)]="search_word">
+                  <!-- <span>
                       <mat-icon class="material-icons-search">search</mat-icon>
                     </span> -->
-                  </div>
-                  <div class="dropdown-content-small">
-                    <a class="roboto-font-light" *ngFor="let ser of search_data" [href]="post_link + ser['uid']">{{ser["title"]}}</a>
-                    <a *ngIf="search_word && search_data.length == 0">No search results found for word "{{search_word}}"</a>
-                  </div>
                 </div>
-                <div>
-                  <button mat-icon-button style="outline: none;" align="right" (click)="toggle_search()">
-                    <mat-icon class="material-icons">search</mat-icon>
-                  </button>
+                <div class="dropdown-content-small">
+                  <a class="roboto-font-light" *ngFor="let ser of search_data"
+                    [href]="post_link + ser['uid']">{{ser["title"]}}</a>
+                  <a *ngIf="search_word && search_data.length == 0">No search results found for word
+                    "{{search_word}}"</a>
                 </div>
               </div>
-              <!-- <p class="ro-title-image-sm d d-flex justify-content-center" (click)="home()">
+              <div>
+                <button mat-icon-button style="outline: none;" align="right" (click)="toggle_search()">
+                  <mat-icon class="material-icons">search</mat-icon>
+                </button>
+              </div>
+            </div>
+            <!-- <p class="ro-title-image-sm d d-flex justify-content-center" (click)="home()">
                 <span style="font-family: 'super comic' !important;" class="ml-3">PYTHON</span><span
                   style="color: #466aa7; font-family: 'super comic' !important;">GURU</span>
                 <span>
                   <img src="assets/images/title/Naren.png" width="35px">
                 </span>
               </p> -->
-            </mat-toolbar-row>
-            <div style="width: 100%;" class="d-flex justify-content-center">
-              <span style="font-family: Poppins Light !important; font-size: 13px; margin-top: -5px; margin-left: 10px;
+          </mat-toolbar-row>
+          <div style="width: 100%;" class="d-flex justify-content-center">
+            <span style="font-family: Poppins Light !important; font-size: 13px; margin-top: -5px; margin-left: 10px;
                 letter-spacing: 4px; text-shadow: 0px 1px 2px #b1abab;">THE DATA SCIENTIST</span>
-            </div>
-            <div style="width: 100%;" class="d-flex justify-content-center">
-              <span class="row d-flex justify-content-center" style="font-family: Poppins Light !important; margin-top: -10px; font-size: 13px; letter-spacing: 0.5px;">Training &nbsp; <mat-icon class="material-icons-dot-mobile">fiber_manual_record</mat-icon> Development  &nbsp; <mat-icon class="material-icons-dot-mobile">fiber_manual_record</mat-icon>Consultation</span>
-            </div>
           </div>
-          <!-- </div>
+          <div style="width: 100%;" class="d-flex justify-content-center">
+            <span class="row d-flex justify-content-center"
+              style="font-family: Poppins Light !important; margin-top: -10px; font-size: 13px; letter-spacing: 0.5px;">Training
+              &nbsp; <mat-icon class="material-icons-dot-mobile">fiber_manual_record</mat-icon> Development &nbsp;
+              <mat-icon class="material-icons-dot-mobile">fiber_manual_record</mat-icon>Consultation</span>
+          </div>
+        </div>
+        <!-- </div>
         </div> -->
         <!-- <mat-toolbar>
           <span>THE DATA SCIENTIST</span>
@@ -193,13 +212,15 @@
       <div class="col-md-3 dropdown">
         <div style="border-bottom: 0.5px solid rgb(216, 213, 213);">
           <input placeholder="Search for Articles and Authors"
-            style="background-color: transparent; border: none; width:90%; outline: none !important;" (keyup)="searchWord($event)" [(ngModel)]="search_word">
+            style="background-color: transparent; border: none; width:90%; outline: none !important;"
+            (keyup)="searchWord($event)" [(ngModel)]="search_word">
           <span>
             <mat-icon class="material-icons-search">search</mat-icon>
           </span>
         </div>
         <div class="dropdown-content">
-          <a class="roboto-font-light" *ngFor="let ser of search_data" [href]="post_link + ser['uid']">{{ser["title"]}}</a>
+          <a class="roboto-font-light" *ngFor="let ser of search_data"
+            [href]="post_link + ser['uid']">{{ser["title"]}}</a>
           <a *ngIf="search_word && search_data.length == 0">No search results found for word "{{search_word}}"</a>
 
           <!-- <a href="#"  class="roboto-font-light">.Net</a> -->
@@ -243,6 +264,20 @@
       <a mat-list-item>Gallery</a>
       <a mat-list-item (click)="router.navigate(['/home/about']);snav.toggle();">About</a>
       <hr>
+      <div style="margin-left: 20px;">
+        <p style="font-size: 12px;">
+          <mat-icon class="material-icons-custom" style="color: #58a746; margin-top: 7px;">mail</mat-icon>info@pythonguru.in
+        </p>
+        <p style="font-size: 12px; margin-top: -20px;">
+          <mat-icon class="material-icons-custom" style="color: #58a746">call</mat-icon>+91 95156 69077
+        </p>
+        <p style="font-size: 12px; margin-top: -20px;"><mat-icon class="material-icons-custom" style="color: #58a746; font-size: 18px !important;">location_on</mat-icon>KPHB, Hyderabad, India.</p>
+          <!-- <span style="font-size: 12px; height: 12px;">Address: &nbsp;&nbsp; Rossum Computing, &nbsp;806,
+            &nbsp;8<sup>th</sup> &nbsp;floor, </span>
+          <p style="margin-top: -15px;"><span style="font-size: 12px; height: 12px;">Manjeera Trinity Corporate,
+              &nbsp;KPHB, &nbsp;Hyderabad.</span></p> -->
+      </div>
+      <hr>
       <h5 align="center">Articles by Topic</h5>
       <hr>
       <a mat-list-item
@@ -263,7 +298,9 @@
 
   <mat-sidenav-content (scroll)="scrollHandler($event)">
     <div class="container-fluid" style="max-width: width 1200px;">
-      <a class="return-to-top" *ngIf="scroll_flag" (click)="scroll_fun($event)"><mat-icon class="material-icons-scroll">keyboard_arrow_up</mat-icon></a>
+      <a class="return-to-top" *ngIf="scroll_flag" (click)="scroll_fun($event)">
+        <mat-icon class="material-icons-scroll">keyboard_arrow_up</mat-icon>
+      </a>
       <div style="margin-top: 120px;">
         <br>
         <router-outlet></router-outlet>
