@@ -160,6 +160,50 @@
     font-feature-settings: 'liga';
 }
 
+.material-icons-dot {
+    font-family: 'Material Icons' !important;
+    font-size: 7px !important;
+    font-weight: lighter !important;
+    font-style: normal;
+    // display: inline-block;
+    // line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+
+    // margin-right: -4px;
+    margin-top: 12px;
+    vertical-align: middle !important;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: 'liga';
+}
+
+.material-icons-dot-mobile {
+    font-family: 'Material Icons' !important;
+    font-size: 5px !important;
+    font-weight: lighter !important;
+    font-style: normal;
+    // display: inline-block;
+    // line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+
+    margin-right: -10px;
+    margin-top: 13px;
+    vertical-align: middle !important;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: 'liga';
+}
+
 .rotate90 {
     -webkit-transform: rotate(330deg);
     -moz-transform: rotate(330deg);

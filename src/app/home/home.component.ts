@@ -111,7 +111,7 @@ export class HomeComponent implements OnInit {
       window.open("https://www.linkedin.com/in/narendra-allam/");
     }
     else {
-      window.open("https://www.youtube.com/channel/UCcU5R2GNoaNGvfFlkD-0mcw");
+      window.open("https://www.youtube.com/watch?v=NkWYifOGBG8");
     }
   }
 
