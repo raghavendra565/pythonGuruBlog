@@ -10,9 +10,11 @@ import { NarentraningsComponent } from './narentranings/narentranings.component'
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { PythondocsComponent } from './pythondocs/pythondocs.component';
 import { LanguageSpecificArticlesComponent } from './language-specific-articles/language-specific-articles.component';
+import { VideosComponent } from './videos/videos.component';
+import { GalleryComponent } from './gallery/gallery.component';
 
 @NgModule({
-  declarations: [PostComponent, HomechildComponent, PizzaPartyComponent, NarentraningsComponent, AboutusComponent, PythondocsComponent, LanguageSpecificArticlesComponent],
+  declarations: [PostComponent, HomechildComponent, PizzaPartyComponent, NarentraningsComponent, AboutusComponent, PythondocsComponent, LanguageSpecificArticlesComponent, VideosComponent, GalleryComponent],
   imports: [
     CommonModule,
     HomechildRoutingModule,

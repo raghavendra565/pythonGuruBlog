@@ -24,7 +24,8 @@
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
                     style="color: #58a746; font-family: Poppins Semibold !important;">D</span>evelopment
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
-                    style="color: #58a746; font-family: Poppins Semibold !important;">C</span>onsultation</span>
+                    style="color: #58a746; font-family: Poppins Semibold !important;">C</span>onsultation
+                </span>
               </p>
               <!-- <mat-icon class="material-icons-dot">fiber_manual_record</mat-icon> <mat-icon class="material-icons-dot">fiber_manual_record</mat-icon>-->
               <div style="margin-left: -15px;" (click)="home()">
@@ -55,10 +56,10 @@
               <div class="row" style="height: 20px; margin-top: 5px;">
                 <div class="col-md">
                   <span style="font-size: 12px;">
-                    <mat-icon class="material-icons-custom" style="color: #58a746">mail</mat-icon>info@pythonguru.in
+                    <mat-icon class="material-icons-custom" style="color: #58a746; margin-top: 8px;">mail</mat-icon>info@pythonguru.in
                   </span>&nbsp;
                   <span style="font-size: 12px;">
-                    <mat-icon class="material-icons-custom" style="color: #466aa7">call</mat-icon>+91 95156 69077
+                    <mat-icon class="material-icons-custom" style="color: #466aa7; margin-top: 8px;">call</mat-icon>+91 95156 69077
                   </span>
                 </div>
               </div>
@@ -166,19 +167,19 @@
           <p class="roboto-font-light">Courses</p>
         </div>
       </div>
-
-      <div class="nav-hover col-md">
+      <!-- #EC7538 0px 0px 0px #4CA751 #466aa7 #f5ce0a -->
+      <div class="nav-hover col-md" style="border-radius: 25px 0px 0px 0px; background-color: #f5ce0a; min-width: 110px;">
         <div class="d-flex justify-content-center mt-1" (click)="router.navigate(['/home/pydocs'])">
-          <p style="font-family: 'Roboto Light' !important;">Free Material</p>
+          <p class="roboto-font-light">FREE Material</p>
         </div>
       </div>
       <div class="nav-hover1 col-md">
-        <div class="d-flex justify-content-center mt-1">
+        <div class="d-flex justify-content-center mt-1" (click)="router.navigate(['/home/videos'])">
           <p class="roboto-font-light">Videos</p>
         </div>
       </div>
       <div class="nav-hover col-md">
-        <div class="d-flex justify-content-center mt-1">
+        <div class="d-flex justify-content-center mt-1" (click)="router.navigate(['/home/gallery'])">
           <p class="roboto-font-light">Gallery</p>
         </div>
       </div>
@@ -211,7 +212,7 @@
       </div>
       <div class="col-md-3 dropdown">
         <div style="border-bottom: 0.5px solid rgb(216, 213, 213);">
-          <input placeholder="Search for Articles and Authors"
+          <input placeholder="Search Articles / Authors"
             style="background-color: transparent; border: none; width:90%; outline: none !important;"
             (keyup)="searchWord($event)" [(ngModel)]="search_word">
           <span>
@@ -259,10 +260,10 @@
     <mat-nav-list>
       <a mat-list-item (click)="router.navigate(['/home']); snav.toggle();">Home</a>
       <a mat-list-item (click)="router.navigate(['/home/courses']); snav.toggle();">Courses</a>
-      <a mat-list-item (click)="router.navigate(['/home/pydocs']); snav.toggle();">Free Material</a>
-      <a mat-list-item>Videos</a>
-      <a mat-list-item>Gallery</a>
-      <a mat-list-item (click)="router.navigate(['/home/about']);snav.toggle();">About</a>
+      <a mat-list-item (click)="router.navigate(['/home/pydocs']); ">Free Material</a>
+      <a mat-list-item (click)="router.navigate(['/home/gallery']); snav.toggle();">Videos</a>
+      <a mat-list-item (click)="router.navigate(['/home/gallery']); snav.toggle();">Gallery</a>
+      <a mat-list-item (click)="router.navigate(['/home/about']); snav.toggle();">About</a>
       <hr>
       <div style="margin-left: 20px;">
         <p style="font-size: 12px;">
@@ -308,8 +309,6 @@
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
-
-
 
 <!-- rgb(202, 202, 202) -->
 <div width="100%" class="footer mat-elevation-z4">

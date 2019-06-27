@@ -185,7 +185,7 @@ export class PostComponent implements OnInit {
   templateUrl: 'snack-bar-component-example-snack.html',
   styles: [`
     .example-pizza-party {
-      color: hotpink;
+      color: white;
     }
   `],
 })

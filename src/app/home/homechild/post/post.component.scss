@@ -77,21 +77,32 @@ a {
 }
 
 .code-bar {
-    width:100% !important; 
-    font-family: 'Roboto Regular' !important; 
-    height:20px; margin-left: -130px; 
-    margin-bottom: 10px; 
-    margin-top: -30px; 
-    color: rgb(75, 75, 75) !important;
+    margin-left:1px; 
+    margin-right: 1px; 
+    margin-bottom: -8px; 
+    padding: 0 14px; 
+    border-bottom: 1px solid lightgray;
+    // width:100% !important; 
+    // font-family: 'Roboto Regular' !important; 
+    // height:20px;
+    // margin-left: -130px; 
+    // margin-bottom: 10px; 
+    // margin-top: -30px; 
+    // color: rgb(75, 75, 75) !important;
 }
 
 .code-bar-title {
-    float:right; 
-    margin-right: -130px; 
-    border-left:1px solid lightgray; 
+    margin-left: auto; 
+    margin-top: auto; 
+    margin-bottom: auto; 
     font-size: 12px !important; 
-    margin-bottom: 20px !important;
-    margin-top: -10px !important;
+    border-left:1px solid lightgray;
+    // float:right; 
+    // margin-right: -130px; 
+    // border-left:1px solid lightgray; 
+    // font-size: 12px !important; 
+    // margin-bottom: 20px !important;
+    // margin-top: -10px !important;
 }
 
 .material-icons-custom{

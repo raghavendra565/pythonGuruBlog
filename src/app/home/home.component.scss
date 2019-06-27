@@ -55,7 +55,7 @@
 .dropdown:hover .dropbtn {background-color: #3e8e41;}
 
 .roboto-font-light {
-    font-family: 'Roboto Light' !important;
+    font-family: 'Roboto Regular' !important;
 }
 
 .mat-elevation-custom {
@@ -216,6 +216,7 @@
     //color:#353535;
     color: black;
     height: 40px !important;
+    // font-family: 'Roboto Medium' !important;
     //background-color:#58a746;
     // background-color:rgb(88,167,70);
 }
@@ -224,22 +225,25 @@
     // color:#353535;
     color: black;
     height: 40px !important;
+    // font-family: 'Roboto Medium' !important;
     // background-color:rgb(70,106,167);
     // background-color:#466aa7;
 }
 
-.nav-hover:hover{
+.nav-hover:hover {
     color: white !important;
     height: 40px !important;
-    background-color:#58a746;
+    background-color:#58a746 !important;
     transition: 0.3s;
+    border-radius: 25px 0px 0px 0px;
 }
 
-.nav-hover1:hover{
+.nav-hover1:hover {
     color: white !important;
     height: 40px !important;
-    background-color:#466aa7;
+    background-color:#466aa7 !important;
     transition: 0.3s;
+    border-radius: 25px 0px 0px 0px;
 }
 
 .search{

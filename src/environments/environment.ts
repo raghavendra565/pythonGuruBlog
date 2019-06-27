@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  server_url: 'http://192.168.1.128:5000/api/v1/'
+  server_url: 'https://api.pythonguru.io/api/v1/'
 };
 
 // 134.209.159.70

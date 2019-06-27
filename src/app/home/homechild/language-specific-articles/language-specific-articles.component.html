@@ -7,9 +7,11 @@
             <div class="row" style="width:100%;">
               <div class="col-lg-9 col-md-9 pl-4">
                 <h6 style="color:rgb(82, 82, 82); padding-top: 10px;">{{i['language'] | titlecase}}</h6>
-                <a [href]="post_link + i['uid']"><h5 *ngIf="i['title']" style="cursor: pointer;">
-                  {{i['title'] }}
-                </h5></a>
+                <a [href]="post_link + i['uid']">
+                  <h5 *ngIf="i['title']" style="cursor: pointer;">
+                    {{i['title'] }}
+                  </h5>
+                </a>
                 <p style="color:#58a746 !important; font-size:14px !important; margin-top: -5px !important;">
                   <span style="color:rgb(85, 85, 85);">
                     <mat-icon class="material-icons-custom">today</mat-icon>
@@ -22,6 +24,12 @@
                   </span>
                   <span style="color:rgb(85, 85, 85);margin-left: -15px;">{{i['reading_time']}} minutes
                     read&nbsp;&nbsp;&nbsp;</span>
+                  <span style="color:rgb(85, 85, 85);">
+                    <img src="assets/images/eye.png" height="16px" matTooltip="Total views"
+                      matTooltipClass="example-tooltip-red">
+                  </span>
+                  <span style="color:rgb(85, 85, 85);" matTooltip="Total views"
+                    matTooltipClass="example-tooltip-red">&nbsp;&nbsp;{{i['clicks']}}&nbsp;&nbsp;&nbsp;</span>
                   <span><img src="assets/images/pen.png" width="12px" style="margin-top: -2px !important;"></span>
                   {{i['author']['name']}}
                 </p>
@@ -43,24 +51,47 @@
     </div>
     <div class="col-lg-4" *ngIf="most_popular.length > 0">
       <div class="d-flex justify-content-center" style="margin-bottom: 20px;">
-        <img src="assets/images/hero/add.png" width="370px" height="370px;" class="mat-elevation-z4">
+        <a [routerLink]="['/home/courses']"><img src="assets/images/hero/add.png" width="370px" height="370px;"
+            class="mat-elevation-z4"></a>
       </div>
       <div>
       </div><br>
-      <div>
+      <div style="border: 1px solid rgb(231, 231, 231);" class="mb-3">
+        <div class="ml-3 mt-3 mr-3" *ngIf="most_popular.length > 0">
+          <div>
+            <h4 style="color:#466aa7; cursor: pointer;">Most Popular</h4>
+            <hr>
+          </div>
+          <div class="row" *ngFor="let i of most_popular" (click)="postdata(i)">
+            <div class="col-md-12">
+              <a [href]="post_link + i['uid']">
+                <h6 class="title" style="color:#466aa7; cursor: pointer;" *ngIf="i['title']">
+                  {{i['title']}}</h6>
+              </a>
+              <div style="margin-top:-10px;">
+                <span style="color:#58a746;">{{i['author']['name']}}</span>&nbsp;
+                <span style="color:rgb(82, 82, 82); font-size: 14px;">{{ i['post_date'] | date: 'dd/MM/yy' }}</span>
+              </div><br>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <div>
         <h4 style="color:#466aa7; cursor: pointer;">Most Popular</h4>
         <hr>
       </div>
       <div class="row" *ngFor="let i of most_popular" (click)="postdata(i)">
         <div class="col-md-12">
-          <a [href]="post_link + i['uid']"><h6 class="title" style="color:#466aa7; cursor: pointer;" *ngIf="i['title']">
-            {{i['title']}}</h6></a>
+          <a [href]="post_link + i['uid']">
+            <h6 class="title" style="color:#466aa7; cursor: pointer;" *ngIf="i['title']">
+              {{i['title']}}</h6>
+          </a>
           <div style="margin-top:-10px;">
             <span style="color:#58a746;">{{i['author']['name']}}</span>&nbsp;
             <span style="color:rgb(82, 82, 82); font-size: 14px;">{{ i['post_date'] | date: 'dd/MM/yy' }}</span>
           </div><br>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
   <div class="row" *ngIf="list_blogs.length <= 0">

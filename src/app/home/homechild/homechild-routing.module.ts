@@ -1,3 +1,5 @@
+import { GalleryComponent } from './gallery/gallery.component';
+import { VideosComponent } from './videos/videos.component';
 import { LanguageSpecificArticlesComponent } from './language-specific-articles/language-specific-articles.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { NgModule } from '@angular/core';
@@ -14,7 +16,9 @@ const routes: Routes = [
   { path: 'about', component: AboutusComponent },
   { path: 'pydocs', component: PythondocsComponent },
   { path: 'postsLanguage', component: LanguageSpecificArticlesComponent },
-  { path: '**', redirectTo: ''}
+  { path: 'videos', component: VideosComponent },
+  { path: 'gallery', component: GalleryComponent },
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({
